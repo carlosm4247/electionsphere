@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Link, Route, Routes } from '../node_modules/react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import "./App.css";
 
 export default function App() {
