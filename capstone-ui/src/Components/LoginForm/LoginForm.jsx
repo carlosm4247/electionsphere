@@ -7,14 +7,14 @@ const LoginForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const { updateUser } = useContext(UserContext);
-    
+
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:5174/users/login', {
+            const response = await fetch('http://localhost:3001/users/login', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
