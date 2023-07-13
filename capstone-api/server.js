@@ -5,6 +5,7 @@ import morgan from "morgan";
 import { sequelize } from "./database.js";
 import { User } from "./models/users.js";
 import userRoutes from "./routes/users.js";
+import SequelizeStoreInit from "connect-session-sequelize";
 
 const app = express();
 
@@ -14,6 +15,27 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(morgan('combined'));
+
+const sequelizeStore = SequelizeStoreInit(session.Store);
+const sessionStore = new sequelizeStore({
+    db: sequelize
+});
+
+app.use(
+    session({
+        secret: "your-secret-key",
+        resave: false,
+        saveUninitialized: false,
+        store: sessionStore,
+        cookie: {
+            sameSite: false,
+            secure: false,
+            expires: new Date(Date.now() + (365 * 24 * 60 * 60 * 1000))
+        }
+    })
+)
+
+sessionStore.sync();
 
 app.use(userRoutes);
 

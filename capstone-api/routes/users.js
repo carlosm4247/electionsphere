@@ -18,6 +18,8 @@ router.post("/users", async (req, res) => {
 
         const newUser = await User.create({ username, password: hashedPassword, zipcode });
 
+        req.session.user = newUser;
+
         res.json({ user: newUser });
     }
     catch(error) {
@@ -42,6 +44,8 @@ router.post("/users/login", async (req, res) => {
         if (!passwordMatches) {
             return res.status(401).json({ error: "Invalid username or password" })
         }
+
+        req.session.user = user;
 
         res.json({ user });
     }
