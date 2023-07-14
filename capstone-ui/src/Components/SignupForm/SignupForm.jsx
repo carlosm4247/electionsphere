@@ -16,13 +16,15 @@ const SignupForm = () => {
     };
 
     const handleSignup = async (e) => {
+        e.preventDefault();
+
         try {
             if (!isValidZip(zipcode)) {
                 alert("Invalid ZIP code");
                 return;
             }
 
-            const response = await fetch('http://localhost:5174/users', {
+            const response = await fetch('http://localhost:3001/users', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -34,8 +36,6 @@ const SignupForm = () => {
             if (response.ok) {
                 const data = await response.json();
                 const loggedInUser = data.user
-
-                console.log("Signup successful");
 
                 setUsername("");
                 setPassword("");
