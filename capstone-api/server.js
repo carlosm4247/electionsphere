@@ -42,9 +42,7 @@ app.use(userRoutes);
 sequelize.sync({ alter: true })
   .then(() => {
     const port = 3001;
-    app.listen(port, () => {
-      console.log(`App is listening on port ${port}`);
-    });
+    app.listen(port);
   })
   .catch(error => {
     console.error('Unable to connect to the database:', error);

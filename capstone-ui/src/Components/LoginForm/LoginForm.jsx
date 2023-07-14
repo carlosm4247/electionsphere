@@ -32,7 +32,9 @@ const LoginForm = () => {
                 navigate("/");
             }
             else {
-                alert("Login Failed.")
+                const data = await response.json();
+                const error = data.error;
+                alert("Login Failed: " + error);
             }
         }
         catch (error) {

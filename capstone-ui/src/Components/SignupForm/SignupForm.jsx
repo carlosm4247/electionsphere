@@ -46,7 +46,9 @@ const SignupForm = () => {
                 navigate("/");
             }
             else {
-                alert('Signup failed');
+                const data = await response.json();
+                const error = data.error;
+                alert("Signup failed: " + error);
             }
         }
         catch(error) {
