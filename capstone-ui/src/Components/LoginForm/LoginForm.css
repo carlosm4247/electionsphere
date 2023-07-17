@@ -1,0 +1,49 @@
+.login-form-container {
+    display: flex;
+    margin: 2rem;
+    justify-content: center;
+}
+  
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.login-form h2 {
+    text-align: center;
+}
+
+.login-form .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.login-form .form-group label {
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: left;
+    flex: 1;
+}
+
+.login-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 2;
+}
+
+.login-form button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: #007bff;
+}
+
+.login-form button:hover {
+    border-color: white;
+}
