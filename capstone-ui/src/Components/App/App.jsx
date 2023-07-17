@@ -20,11 +20,30 @@ export default function App() {
     localStorage.setItem("user", JSON.stringify(user));
   }, [user])
 
-
-
   const handleLogout = () => {
     updateUser(null);
   };
+
+  const [dropdownVal, setDropdownVal] = useState(window.location.pathname);
+
+  const options = [
+
+    { label: 'Home', value: '/' },
+ 
+    { label: 'Presidential Race', value: '/president' },
+ 
+  ];
+
+  const handleDropdown = (e) => {
+    e.preventDefault();
+    setDropdownVal(e.target.value);
+  };
+
+  useEffect(() => {
+    if (window.location.pathname !== dropdownVal) {
+      window.location.replace(dropdownVal);
+    }
+  }, [dropdownVal]);
 
   return (
     <div className='app'>
@@ -33,7 +52,11 @@ export default function App() {
           <main>
             <div className="navbar">
               <div className="dropdown">
-                <Link to="/"><button>Home</button></Link>
+                <select value={dropdownVal} onChange={handleDropdown}>
+                  {options.map((option) => (
+                  <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
               </div>
               <h2 className="title">Website Name</h2>
               <div className='user-info'>
@@ -50,6 +73,7 @@ export default function App() {
             <div className="content">
               <Routes>
                 <Route path='/' element={<p>Message</p>}/>
+                <Route path='/president' element={<p>President</p>}/>
                 <Route path='/login' element={<LoginForm />}/>
                 <Route path='/signup' element={<SignupForm />}/>
               </Routes>
