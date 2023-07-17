@@ -3,6 +3,7 @@ import { UserContext } from '../../UserContext';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import SignupForm from '../SignupForm/SignupForm';
+import PresidentialRaces from '../PresidentialRaces/PresidentialRaces';
 import "./App.css";
 
 export default function App() {
@@ -73,7 +74,7 @@ export default function App() {
             <div className="content">
               <Routes>
                 <Route path='/' element={<p>Message</p>}/>
-                <Route path='/president' element={<p>President</p>}/>
+                <Route path='/president' element={<PresidentialRaces />}/>
                 <Route path='/login' element={<LoginForm />}/>
                 <Route path='/signup' element={<SignupForm />}/>
               </Routes>
