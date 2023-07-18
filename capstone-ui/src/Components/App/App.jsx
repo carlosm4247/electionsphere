@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import SignupForm from '../SignupForm/SignupForm';
 import "./App.css";
+import { options, useDropdownVal } from "../../constants.js"
 
 export default function App() {
 
@@ -24,17 +25,9 @@ export default function App() {
     updateUser(null);
   };
 
-  const [dropdownVal, setDropdownVal] = useState(window.location.pathname);
+  const [dropdownVal, setDropdownVal] = useDropdownVal(window.location.pathname);
 
-  const options = [
-
-    { label: 'Home', value: '/' },
- 
-    { label: 'Presidential Race', value: '/president' },
- 
-  ];
-
-  const handleDropdown = (e) => {
+  const handleDropdownChange = (e) => {
     e.preventDefault();
     setDropdownVal(e.target.value);
   };
@@ -52,7 +45,7 @@ export default function App() {
           <main>
             <div className="navbar">
               <div className="dropdown">
-                <select value={dropdownVal} onChange={handleDropdown}>
+                <select value={dropdownVal} onChange={handleDropdownChange}>
                   {options.map((option) => (
                   <option key={option.value} value={option.value}>{option.label}</option>
                   ))}
