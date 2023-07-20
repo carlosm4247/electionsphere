@@ -5,7 +5,9 @@ export default function PresidentialRaces() {
     return (
         <div className="presidential-races">
             <div className="map-container">
-                <InteractiveMap />
+                <InteractiveMap 
+                    raceType='president'
+                />
             </div>
             <div className="results-container">
                 Results
