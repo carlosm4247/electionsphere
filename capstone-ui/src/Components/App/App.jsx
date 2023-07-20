@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import SignupForm from '../SignupForm/SignupForm';
 import PresidentialRaces from '../PresidentialRaces/PresidentialRaces';
+import PresidentStatePage from '../PresidentStatePage/PresidentStatePage';
 import "./App.css";
 
 export default function App() {
@@ -86,6 +87,7 @@ export default function App() {
                 <Route path='/president' element={<PresidentialRaces />}/>
                 <Route path='/login' element={<LoginForm />}/>
                 <Route path='/signup' element={<SignupForm />}/>
+                <Route path='/president/:stateName' element={<PresidentStatePage stateName={"california"}/>}/>
               </Routes>
 
             </div>
