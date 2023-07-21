@@ -26,26 +26,10 @@ export default function App() {
     updateUser(null);
   };
 
-  const [dropdownVal, setDropdownVal] = useState(window.location.pathname);
-
   const options = [
-
     { label: 'Home', value: '/' },
- 
-    { label: 'Presidential Race', value: '/president' },
- 
+    { label: 'Presidential Race', value: '/president' }
   ];
-  
-  const handleDropdown = (e) => {
-    e.preventDefault();
-    setDropdownVal(e.target.value);
-  };
-
-  useEffect(() => {
-    if (window.location.pathname !== dropdownVal) {
-      window.location.replace(dropdownVal);
-    }
-  }, [dropdownVal]);
 
   return (
     <div className='app'>
@@ -54,11 +38,9 @@ export default function App() {
           <main>
             <div className="navbar">
               <div className="dropdown">
-                <select value={dropdownVal} onChange={handleDropdown}>
                   {options.map((option) => (
-                  <option key={option.value} value={option.value}>{option.label}</option>
+                  <Link key={option.value} to={option.value}> <button>{option.label}</button> </Link>
                   ))}
-                </select>
               </div>
               <h2 className="title">Website Name</h2>
               <div className='user-info'>
