@@ -87,7 +87,7 @@ export default function App() {
                 <Route path='/president' element={<PresidentialRaces />}/>
                 <Route path='/login' element={<LoginForm />}/>
                 <Route path='/signup' element={<SignupForm />}/>
-                <Route path='/president/:stateName' element={<PresidentStatePage stateName={"california"}/>}/>
+                <Route path='/president/:stateName' element={<PresidentStatePage />}/>
               </Routes>
 
             </div>
