@@ -35,9 +35,7 @@ export default function App() {
     { label: 'Presidential Race', value: '/president' },
  
   ];
-
-  const [raceType, setRaceType] = useState("");
-
+  
   const handleDropdown = (e) => {
     e.preventDefault();
     setDropdownVal(e.target.value);
@@ -46,13 +44,6 @@ export default function App() {
   useEffect(() => {
     if (window.location.pathname !== dropdownVal) {
       window.location.replace(dropdownVal);
-    }
-
-    if (dropdownVal !== '/') {
-      setRaceType(dropdownVal.slice(1));
-    }
-    else {
-      setRaceType("");
     }
   }, [dropdownVal]);
 
