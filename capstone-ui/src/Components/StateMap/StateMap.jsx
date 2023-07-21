@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as topojson from 'topojson-client';
 import usData from '../../data/us.json';
 import "./StateMap.css";
@@ -61,33 +61,45 @@ export default function StateMap({ stateName }) {
 
     const stateFIPS = FIPSfromStateName[stateName];
 
+    const mapRef = useRef(null);
+
     useEffect(() => {
         const margin = { top: 50, left: 50, right: 50, bottom: 50 };
         const height = 400 - margin.top - margin.bottom;
         const width = 800 - margin.left - margin.right;
+    
+        const mapContainer = d3.select(mapRef.current);
 
-        const svg = d3
-        .select('#map')
-        .append('svg')
-        .attr('height', height + margin.top + margin.bottom)
-        .attr('width', width + margin.left + margin.right)
-        .append('g')
-        .attr('transform', `translate(${margin.left}, ${margin.top})`);
-
+        mapContainer.selectAll('svg').remove();
+    
+        const svg = mapContainer
+          .append('svg')
+          .attr('height', height + margin.top + margin.bottom)
+          .attr('width', width + margin.left + margin.right)
+          .append('g')
+          .attr('transform', `translate(${margin.left}, ${margin.top})`);
+    
         const projection = d3.geoAlbersUsa().translate([width / 2, height / 2]).scale(800);
-
+    
         const path = d3.geoPath().projection(projection);
-
-        const counties = topojson.feature(usData, {type: 'GeometryCollection', geometries: usData.objects.counties.geometries.filter((county) => String(county.id).length - String(stateFIPS).length == 3 && String(county.id).substring(0,String(stateFIPS).length) == String(stateFIPS))}).features;
-
+    
+        const counties = topojson.feature(usData, {
+          type: 'GeometryCollection',
+          geometries: usData.objects.counties.geometries.filter((county) => String(county.id).length - String(stateFIPS).length === 3 && String(county.id).substring(0, String(stateFIPS).length) === String(stateFIPS))
+        }).features;
+    
         svg.selectAll('.county')
-        .data(counties)
-        .enter().append('path')
-        .attr('class', 'county')
-        .attr('d', path);
-    }, []);
+          .data(counties)
+          .enter().append('path')
+          .attr('class', 'county')
+          .attr('d', path);
+    
+        return () => {
+          svg.remove();
+        };
+      }, []);
 
     return (
-        <div id="map"></div>
+        <div ref={mapRef} className="state-map-container"></div>
         )
 }
