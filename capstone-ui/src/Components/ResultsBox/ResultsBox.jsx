@@ -47,8 +47,19 @@ export default function ResultsBox( { locationLevel, countyFIPS } ) {
         }
         else if (locationLevel === 3) {
             data = electionResults.data.races.find( (race) => race.state_slug === stateName ).counties.find((county) => (county.fips%1000) === (countyFIPS%1000))
+
+            for (let candidate in data.results) {
+                const key = candidate;
+                const name = electionResults.data.races.find( (race) => race.state_slug === stateName ).candidates.find((person) => person.candidate_key === key).name_display;
+                const voteCount = data.results[candidate]
+                const percentage = Math.round((voteCount/data.votes*100) * 10) / 10
+
+                addCandidate(key, name, voteCount, percentage);
+            }
         }
     }
+
+    candidates.sort((a, b) => b.voteCount - a.voteCount);
 
     return (
         <div className="results-box">
