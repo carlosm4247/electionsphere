@@ -3,3 +3,10 @@
     stroke: #333;
     stroke-width: 0.5;
 }
+
+.popup-container {
+    position: absolute;
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 0.4em 1em;
+}
