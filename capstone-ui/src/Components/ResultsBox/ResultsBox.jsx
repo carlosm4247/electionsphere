@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useParams } from "react-router-dom"
 import electionResults from "../../Data/2020presidential.json"
+import "./ResultsBox.css"
 
 export default function ResultsBox( { locationLevel, countyFIPS } ) {
     //locationLevels: 1 = country, 2 = state, 3 = county
