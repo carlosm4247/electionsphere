@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import * as topojson from 'topojson-client';
 import usData from '../../data/us.json';
 import "./StateMap.css";
+import ResultsBox from '../ResultsBox/ResultsBox';
 
 export default function StateMap({ stateName }) {
 
@@ -62,6 +63,8 @@ export default function StateMap({ stateName }) {
     const stateFIPS = FIPSfromStateName[stateName];
 
     const mapRef = useRef(null);
+    const [hoveredCounty, setHoveredCounty] = useState(null);
+    const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
         const margin = { top: 50, left: 50, right: 50, bottom: 50 };
@@ -92,7 +95,15 @@ export default function StateMap({ stateName }) {
           .data(counties)
           .enter().append('path')
           .attr('class', 'county')
-          .attr('d', path);
+          .attr('d', path)
+          .on('mouseover', function(d, i, nodes) {
+            const [x, y] = d3.mouse(nodes[i]);
+            setHoveredCounty(d);
+            setPopupPosition({ x, y });
+          })
+          .on('mouseout', function() {
+            setHoveredCounty(null);
+          });
     
         return () => {
           svg.remove();
@@ -100,6 +111,14 @@ export default function StateMap({ stateName }) {
       }, []);
 
     return (
-        <div ref={mapRef} className="state-map-container"></div>
-        )
+        <div className="state-map-container">
+            <div ref={mapRef} className="map-svg-container"></div>
+            {hoveredCounty && (
+                <div className="popup-container" style={{ left: popupPosition.x, top: popupPosition.y }}>
+                    <ResultsBox locationLevel={3} countyFIPS={hoveredCounty.id} />
+                </div>
+                )
+            }
+        </div>
+    )
 }

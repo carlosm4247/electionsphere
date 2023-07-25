@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useParams } from "react-router-dom"
 import electionResults from "../../Data/2020presidential.json"
+import "./ResultsBox.css"
 
 export default function ResultsBox( { locationLevel, countyFIPS } ) {
     //locationLevels: 1 = country, 2 = state, 3 = county
@@ -40,12 +41,23 @@ export default function ResultsBox( { locationLevel, countyFIPS } ) {
             const voteCount = candidate.votes;
             const percentage = candidate.percent;
 
-            addCandidate(key, name, voteCount, percentage);
+                addCandidate(key, name, voteCount, percentage);
         })
     }
     else {
         data = electionResults.data.races.find( (race) => race.state_slug === stateName ).counties.find((county) => (county.fips%1000) === (countyFIPS%1000))
+
+        for (let candidate in data.results) {
+            const key = candidate;
+            const name = electionResults.data.races.find( (race) => race.state_slug === stateName ).candidates.find((person) => person.candidate_key === key).name_display;
+            const voteCount = data.results[candidate]
+            const percentage = Math.round((voteCount/data.votes*100) * 10) / 10
+
+            addCandidate(key, name, voteCount, percentage);
+        }
     }
+
+    candidates.sort((a, b) => b.voteCount - a.voteCount);
 
     return (
         <div className="results-box">

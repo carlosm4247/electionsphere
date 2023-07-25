@@ -1,0 +1,6 @@
+.results-box {
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 0.4em 1em;
+    width: fit-content;
+}
