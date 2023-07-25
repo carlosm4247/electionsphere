@@ -29,6 +29,8 @@ export default function App() {
 
   const [dropdownVal, setDropdownVal] = useDropdownVal(window.location.pathname);
 
+  const [raceType, setRaceType] = useState("");
+  
   const handleDropdownChange = (e) => {
     e.preventDefault();
     setDropdownVal(e.target.value);
