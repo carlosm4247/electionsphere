@@ -51,9 +51,9 @@ export default function App() {
               <div className="dropdown">
                 <select value={dropdownVal} onChange={handleDropdownChange}>
                   {options.map((option) => (
-                  <option key={option.value} value={option.value}>{option.label}</option>
+                  <Link key={option.value} to={option.value}> <button>{option.label}</button> </Link>
                   ))}
-                </select>
+                </select>  
               </div>
               <h2 className="title">Website Name</h2>
               <div className='user-info'>
