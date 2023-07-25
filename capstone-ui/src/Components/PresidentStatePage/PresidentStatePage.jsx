@@ -1,11 +1,15 @@
 import * as React from "react"
+import StateMap from "../StateMap/StateMap"
+import { useParams } from "react-router-dom"
 
-export default function PresidentialStatePage({ stateName }) {
+export default function PresidentialStatePage() {
+
+    const { stateName } = useParams();
+
     return (
         <div className="state-page">
-            {console.log(stateName)}
             <div className="map-container">
-                {stateName} Map
+                <StateMap stateName={stateName} />
             </div>
             <div className="results-container">
                 Results

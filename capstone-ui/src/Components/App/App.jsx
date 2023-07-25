@@ -40,13 +40,6 @@ export default function App() {
     if (window.location.pathname !== dropdownVal) {
       window.location.replace(dropdownVal);
     }
-
-    if (dropdownVal !== '/') {
-      setRaceType(dropdownVal.slice(1));
-    }
-    else {
-      setRaceType("");
-    }
   }, [dropdownVal]);
 
   return (
@@ -80,7 +73,7 @@ export default function App() {
                 <Route path='/president' element={<PresidentialRaces />}/>
                 <Route path='/login' element={<LoginForm />}/>
                 <Route path='/signup' element={<SignupForm />}/>
-                <Route path='/president/:stateName' element={<PresidentStatePage stateName={"california"}/>}/>
+                <Route path='/president/:stateName' element={<PresidentStatePage />}/>
               </Routes>
 
             </div>
