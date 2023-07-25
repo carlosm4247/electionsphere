@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import SignupForm from '../SignupForm/SignupForm';
 import PresidentialRaces from '../PresidentialRaces/PresidentialRaces';
+import PresidentStatePage from '../PresidentStatePage/PresidentStatePage';
 import "./App.css";
 import { options, useDropdownVal } from "../../constants.js"
 
@@ -28,6 +29,8 @@ export default function App() {
 
   const [dropdownVal, setDropdownVal] = useDropdownVal(window.location.pathname);
 
+  const [raceType, setRaceType] = useState("");
+  
   const handleDropdownChange = (e) => {
     e.preventDefault();
     setDropdownVal(e.target.value);
@@ -36,6 +39,13 @@ export default function App() {
   useEffect(() => {
     if (window.location.pathname !== dropdownVal) {
       window.location.replace(dropdownVal);
+    }
+
+    if (dropdownVal !== '/') {
+      setRaceType(dropdownVal.slice(1));
+    }
+    else {
+      setRaceType("");
     }
   }, [dropdownVal]);
 
@@ -70,6 +80,7 @@ export default function App() {
                 <Route path='/president' element={<PresidentialRaces />}/>
                 <Route path='/login' element={<LoginForm />}/>
                 <Route path='/signup' element={<SignupForm />}/>
+                <Route path='/president/:stateName' element={<PresidentStatePage stateName={"california"}/>}/>
               </Routes>
 
             </div>
