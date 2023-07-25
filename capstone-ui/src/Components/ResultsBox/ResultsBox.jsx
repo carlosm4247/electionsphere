@@ -8,6 +8,7 @@ export default function ResultsBox( { locationLevel, countyFIPS } ) {
 
     let data = []
     let candidates = []
+    const { stateName } = useParams();
 
     function addCandidate(key, name, voteCount, percentage) {
         let candidate = {
@@ -31,32 +32,28 @@ export default function ResultsBox( { locationLevel, countyFIPS } ) {
             addCandidate(key, name, voteCount, percentage);
         }
     }
+    else if (locationLevel === 2) {
+        data = electionResults.data.races.find( (race) => race.state_slug === stateName ).candidates
+
+        data.map((candidate) => {
+            const key = candidate.candidate_key;
+            const name = candidate.name_display;
+            const voteCount = candidate.votes;
+            const percentage = candidate.percent;
+
+                addCandidate(key, name, voteCount, percentage);
+        })
+    }
     else {
-        const { stateName } = useParams();
+        data = electionResults.data.races.find( (race) => race.state_slug === stateName ).counties.find((county) => (county.fips%1000) === (countyFIPS%1000))
 
-        if (locationLevel === 2) {
-            data = electionResults.data.races.find( (race) => race.state_slug === stateName ).candidates
+        for (let candidate in data.results) {
+            const key = candidate;
+            const name = electionResults.data.races.find( (race) => race.state_slug === stateName ).candidates.find((person) => person.candidate_key === key).name_display;
+            const voteCount = data.results[candidate]
+            const percentage = Math.round((voteCount/data.votes*100) * 10) / 10
 
-            data.map((candidate) => {
-                const key = candidate.candidate_key;
-                const name = candidate.name_display;
-                const voteCount = candidate.votes;
-                const percentage = candidate.percent;
-
-                addCandidate(key, name, voteCount, percentage);
-            })
-        }
-        else if (locationLevel === 3) {
-            data = electionResults.data.races.find( (race) => race.state_slug === stateName ).counties.find((county) => (county.fips%1000) === (countyFIPS%1000))
-
-            for (let candidate in data.results) {
-                const key = candidate;
-                const name = electionResults.data.races.find( (race) => race.state_slug === stateName ).candidates.find((person) => person.candidate_key === key).name_display;
-                const voteCount = data.results[candidate]
-                const percentage = Math.round((voteCount/data.votes*100) * 10) / 10
-
-                addCandidate(key, name, voteCount, percentage);
-            }
+            addCandidate(key, name, voteCount, percentage);
         }
     }
 

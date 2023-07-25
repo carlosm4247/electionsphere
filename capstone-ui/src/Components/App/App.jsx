@@ -6,6 +6,7 @@ import SignupForm from '../SignupForm/SignupForm';
 import PresidentialRaces from '../PresidentialRaces/PresidentialRaces';
 import PresidentStatePage from '../PresidentStatePage/PresidentStatePage';
 import "./App.css";
+import { options, useDropdownVal } from "../../constants.js"
 
 export default function App() {
 
@@ -26,10 +27,20 @@ export default function App() {
     updateUser(null);
   };
 
-  const options = [
-    { label: 'Home', value: '/' },
-    { label: 'Presidential Race', value: '/president' }
-  ];
+  const [dropdownVal, setDropdownVal] = useDropdownVal(window.location.pathname);
+
+  const [raceType, setRaceType] = useState("");
+  
+  const handleDropdownChange = (e) => {
+    e.preventDefault();
+    setDropdownVal(e.target.value);
+  };
+
+  useEffect(() => {
+    if (window.location.pathname !== dropdownVal) {
+      window.location.replace(dropdownVal);
+    }
+  }, [dropdownVal]);
 
   return (
     <div className='app'>
@@ -38,9 +49,11 @@ export default function App() {
           <main>
             <div className="navbar">
               <div className="dropdown">
+                <select value={dropdownVal} onChange={handleDropdownChange}>
                   {options.map((option) => (
                   <Link key={option.value} to={option.value}> <button>{option.label}</button> </Link>
                   ))}
+                </select>  
               </div>
               <h2 className="title">Website Name</h2>
               <div className='user-info'>
