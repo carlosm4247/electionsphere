@@ -19,7 +19,12 @@ export default function PresidentialRaces({ selectedCandidates, setSelectedCandi
                 />
             </div>
             <div className="candidate-comparison-container">
-                Candidate Comparison
+                {selectedCandidates ? (selectedCandidates.map((candidate) => (
+                            <CandidateView
+                                key={candidate.key}
+                                candidateName={candidate.name}
+                            />
+                        ))) : <></>}
             </div>
         </div>
     )
