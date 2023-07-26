@@ -2,8 +2,9 @@ import * as React from "react"
 import StateMap from "../StateMap/StateMap"
 import { useParams } from "react-router-dom"
 import ResultsBox from "../ResultsBox/ResultsBox";
+import CandidateView from "../CandidateView/CandidateView";
 
-export default function PresidentialStatePage() {
+export default function PresidentialStatePage( { selectedCandidates, setSelectedCandidates }) {
 
     const { stateName } = useParams();
 
@@ -13,7 +14,11 @@ export default function PresidentialStatePage() {
                 <StateMap stateName={stateName} />
             </div>
             <div className="results-container">
-                <ResultsBox locationLevel={2} />
+                <ResultsBox 
+                    locationLevel={2}
+                    selectedCandidates={selectedCandidates}
+                    setSelectedCandidates={setSelectedCandidates}
+                />
             </div>
             <div className="candidate-comparison-container">
                 Candidate Comparison
