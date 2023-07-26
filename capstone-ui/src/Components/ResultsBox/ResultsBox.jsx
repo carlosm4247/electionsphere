@@ -61,14 +61,15 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
 
     function handleClick(key, name) {
       setSelectedCandidates((selected) => {
-        const foundCandidate = selected.findIndex((candidate) => candidate.key === key);
-        if (foundCandidate !== -1) {
-          return selected.filter((candidate) => candidate.key !== key);
-        } else {
-          return selected.concat({ key , name });
-        }
+          const foundCandidate = selected.findIndex((candidate) => candidate.key === key);
+          if (foundCandidate !== -1) {
+              return selected.filter((candidate) => candidate.key !== key);
+          } else {
+              const updatedCandidates = selected.concat({ key, name });
+              return updatedCandidates.slice(-2);
+          }
       });
-    }
+  }
 
     return (
         <div className="results-box">
