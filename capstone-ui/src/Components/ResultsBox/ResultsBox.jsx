@@ -10,6 +10,8 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
     let data = []
     let candidates = []
     const { stateName } = useParams();
+    const initialCandidates = 5;
+    const [candidatesShowing, setCandidatesShowing] = useState(initialCandidates);
 
     function addCandidate(key, name, voteCount, percentage) {
         let candidate = {
@@ -85,7 +87,7 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
               </tr>
             </thead>
             <tbody>
-              {candidates.map((candidate) => (
+              {candidates.slice(0, candidatesShowing).map((candidate) => (
                 <tr key={candidate.key}
                     onClick={() => handleClick(candidate.key, candidate.name)}
                     className={ (selectedCandidates && (selectedCandidates.some((c) => c.key === candidate.key))) ? "selected" : ""}
@@ -97,6 +99,11 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
               ))}
             </tbody>
           </table>
+          {locationLevel != 3 && candidatesShowing < candidates.length && (
+            <button onClick={() => setCandidatesShowing((prev) => prev + initialCandidates)}>
+              Show More
+            </button>
+          )}
         </div>
     )
 }
