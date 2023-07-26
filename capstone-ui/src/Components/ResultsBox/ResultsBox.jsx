@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
 import electionResults from "../../Data/2020presidential.json"
 import "./ResultsBox.css"
+import { unclickables } from '../../constants.js';
 
 export default function ResultsBox( { locationLevel, countyFIPS, selectedCandidates, setSelectedCandidates } ) {
     //locationLevels: 1 = country, 2 = state, 3 = county
@@ -60,15 +61,17 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
     candidates.sort((a, b) => b.voteCount - a.voteCount);
 
     function handleClick(key, name) {
-      setSelectedCandidates((selected) => {
-          const foundCandidate = selected.findIndex((candidate) => candidate.key === key);
-          if (foundCandidate !== -1) {
-              return selected.filter((candidate) => candidate.key !== key);
-          } else {
-              const updatedCandidates = selected.concat({ key, name });
-              return updatedCandidates.slice(-2);
-          }
-      });
+      if (!unclickables.includes(name)) {
+        setSelectedCandidates((selected) => {
+            const foundCandidate = selected.findIndex((candidate) => candidate.key === key);
+            if (foundCandidate !== -1) {
+                return selected.filter((candidate) => candidate.key !== key);
+            } else {
+                const updatedCandidates = selected.concat({ key, name });
+                return updatedCandidates.slice(-2);
+            }
+        });
+      }
   }
 
     return (
