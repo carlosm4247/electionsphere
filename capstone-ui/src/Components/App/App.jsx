@@ -41,12 +41,18 @@ export default function App() {
                   ))}
               </div>
               <h2 className="title">Website Name</h2>
-              <div className='user-info'>
+              <div className='login-section'>
                 {user ? (
-                  <>
-                  <span>Welcome, {user.username}! |</span>
-                  <button onClick={handleLogout}>Logout</button>
-                  </>
+                  <div className='profile'>
+                    <div className='user-info'>
+                      <div>{user.username}</div>
+                      <div>Zip Code: {user.zipcode}</div>
+                      <div>Candidates Followed: {user.following.length}</div>
+                    </div>
+                    <div className='logout'>
+                      <button onClick={handleLogout}>Logout</button>
+                    </div>
+                  </div>
                 ) : (
                   <Link to="/login"><button>Login</button></Link>
                 )}
