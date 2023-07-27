@@ -29,3 +29,8 @@
   border: 1px solid white; 
   padding: 10px;
 }
+
+.following-list {
+  cursor: pointer;
+  text-decoration: underline;
+}
