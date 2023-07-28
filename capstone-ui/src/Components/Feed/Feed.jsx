@@ -1,11 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Feed.css"
+import { UserContext } from "../../UserContext";
 
 export default function Feed ( { loggedin }) {
 
     const [articles, setArticles] = useState([]);
     const [searchQuery, setSearchQuery] = useState([]);
 
+    const user = useContext(UserContext);
+
+    const currentUser = user.user;
+
+    useEffect(() => {
+        if (loggedin) {
+          const tagsArray = Object.values(currentUser.stances).map(([tag, option]) => tag);
+          setSearchQuery(tagsArray.concat(currentUser.following));
+        }
+      }, [loggedin, user.stances, user.following]);
+    
     useEffect(() => {
         const fetchNewsArticles = async () => {
           try {
@@ -31,13 +43,15 @@ export default function Feed ( { loggedin }) {
         <div className="feed-container">
             <h3>Feed</h3>
             <ul>
-                {articles.map((article, index) => (
+                {articles ? (articles.map((article, index) => (
                 <li key={index}>
                     <a href={article.url} target="_blank">
                     {article.title}
                     </a>
                 </li>
-                ))}
+                ))) : (
+                    <p>No articles right now, check later or refresh the page.</p>
+                )}
             </ul>
         </div>
     )
