@@ -7,7 +7,7 @@
 .signup-form {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 400px;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -24,6 +24,18 @@
     font-weight: bold;
     text-align: left;
     flex: 1;
+}
+
+.signup-form .form-group .stances {
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.signup-form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
 }
 
 .signup-form input {
