@@ -97,22 +97,30 @@ const SignupForm = () => {
                 {Object.entries(questionsWithOptions).map(([question, options]) => (
                 <div className="form-group" key={question}>
                     <div className="stances">
-                        <label htmlFor={question}>{question}</label>
-                        <select
-                            id={question}
-                            value={stances[question] || ""}
-                            onChange={(e) =>
-                                setStances({ ...stances, [question]: e.target.value })
-                            }
-                            required
+                    <label htmlFor={question}>{question}</label>
+                    <select
+                        id={question}
+                        value={stances[question] ? stances[question][1] : ""}
+                        onChange={(e) => {
+                            const selectedOption = e.target.value;
+                            const selectedTagAndOption = options.find(
+                            (opt) => opt[1] === selectedOption
+                            );
+
+                            setStances((prevStances) => ({
+                            ...prevStances,
+                            [question]: selectedTagAndOption ? selectedTagAndOption : "",
+                            }));
+                        }}
+                        required
                         >
                         <option value="">Select your stance</option>
                         {options.map((option, index) => (
-                            <option key={index} value={option}>
-                            {option}
+                            <option key={index} value={option[1]}>
+                            {option[1]}
                             </option>
                         ))}
-                        </select>
+                    </select>
                     </div>
                 </div>
                 ))}
