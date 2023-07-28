@@ -30,8 +30,6 @@ router.get("/news", async (req, res) => {
 
     const params = { ...baseParams, q: constructedQuery };
 
-    console.log(params)
-
     const response = await axios.get(apiUrl, {
         params,
         headers: {
