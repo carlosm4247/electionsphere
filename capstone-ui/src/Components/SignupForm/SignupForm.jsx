@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../UserContext";
-import { questionsWithOptions, parties } from "../../constants";
+import { questionsWithOptions, parties, baseCandidates } from "../../constants";
 import "./SignupForm.css";
 
 const SignupForm = () => {
@@ -10,6 +10,7 @@ const SignupForm = () => {
     const [zipcode, setZipcode] = useState("");
     const [stances, setStances] = useState({})
     const [preferredParty, setPreferredParty] = useState("");
+    const [candidates, setCandidates] = useState(baseCandidates);
 
     const { updateUser } = useContext(UserContext);
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ const SignupForm = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username, password, zipcode, stances, preferredParty }),
+                body: JSON.stringify({ username, password, zipcode, stances, preferredParty, candidates }),
                 credentials: "include"
             });
 
@@ -45,6 +46,7 @@ const SignupForm = () => {
                 setZipcode("");
                 setStances({});
                 setPreferredParty("");
+                setCandidates(baseCandidates);
 
                 updateUser(loggedInUser);
 
