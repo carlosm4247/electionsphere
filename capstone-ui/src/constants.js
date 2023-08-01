@@ -101,4 +101,6 @@ const questionsWithOptions = {
   ]
 };
 
-export { options, unclickables, questionsWithOptions };
+const parties = ["Democratic Party", "Republican Party", "Independent", "Libertarian Party", "Green Party", "Constitution Party", "Alliance Party", "Other"];
+
+export { options, unclickables, questionsWithOptions, parties };
