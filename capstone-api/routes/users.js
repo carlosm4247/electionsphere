@@ -107,4 +107,31 @@ router.post("/unfollow", async (req, res) => {
     }
 });
 
+router.post("/click", async (req, res) => {
+    const { username, candidateName } = req.body;
+  
+    try {
+        const user = await User.findOne({ where: { username } });
+    
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+  
+        const candidates = user.candidates || {};
+        const candidateData = candidates[candidateName];
+        const updatedClickCount = candidateData[0] + 1;
+        const updatedCandidateData = [updatedClickCount, candidateData[1]]; 
+        const updatedCandidates = { ...candidates, [candidateName]: updatedCandidateData };
+
+        user.setDataValue("candidates", updatedCandidates);
+
+        await user.save();
+  
+        res.json({ clickCount: updatedClickCount });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Server error" });
+    }
+});
+
 export default router
