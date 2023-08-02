@@ -6,6 +6,8 @@ export default function Feed ( { loggedin }) {
 
     const [articles, setArticles] = useState([]);
     const [searchQuery, setSearchQuery] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     const user = useContext(UserContext);
 
@@ -14,9 +16,9 @@ export default function Feed ( { loggedin }) {
     const [isFetching, setIsFetching] = useState(false);
     const fetchTimerRef = useRef(null);
 
-    const fetchData = async () => {
+    const fetchData = async (page) => {
       try {
-        const url = `http://localhost:3001/news?query=${JSON.stringify(searchQuery)}&loggedIn=${loggedin}`;
+        const url = `http://localhost:3001/news?query=${JSON.stringify(searchQuery)}&loggedIn=${loggedin}&page=${page}`;
 
         const response = await fetch(url, {
           method: "GET",
@@ -25,7 +27,15 @@ export default function Feed ( { loggedin }) {
 
         const data = await response.json();
 
-        setArticles(data.articles);
+        const articlesArray = Object.values(data.articles);
+
+        if (Array.isArray(articlesArray)) {
+          setArticles((prevArticles) => [...prevArticles, ...articlesArray]);
+        } else {
+          setArticles([]);
+        }
+
+        setTotalPages(data.totalPages);
       } catch (error) {
         console.error(error);
       }
@@ -39,12 +49,21 @@ export default function Feed ( { loggedin }) {
     }, [loggedin, user.stances, user.following]);
 
     useEffect(() => {
+      setCurrentPage(1);
+      fetchData(1);
+    }, [searchQuery]);
+
+    useEffect(() => {
+      console.log("Total Pages:", totalPages);
+    }, [totalPages]);
+
+    useEffect(() => {
       if (isFetching && fetchTimerRef.current) {
         clearTimeout(fetchTimerRef.current);
       }
       setIsFetching(true);
       fetchTimerRef.current = setTimeout(() => {
-        fetchData();
+        fetchData(currentPage);
         setIsFetching(false);
       }, 1000);
 
@@ -53,13 +72,23 @@ export default function Feed ( { loggedin }) {
           clearTimeout(fetchTimerRef.current);
         }
       };
-  }, [searchQuery]);
-  
+    }, [searchQuery, currentPage]);
+
+    const handleLoadMore = () => {
+      if (currentPage < totalPages) {
+        setCurrentPage((prevPage) => prevPage + 1);
+      }
+    };
+
     return (
         <div className="feed-container">
             <h3>Feed</h3>
             <ul>
-                {articles ? (articles.map((article, index) => (
+                {articles ? (articles
+                .filter((article, index, self) =>
+                index === self.findIndex((a) => a.title === article.title)
+                )
+                .map((article, index) => (
                     <div key={index} className="article-container">
                         <div className="article-content">
                             <a href={article.link} target="_blank" className="article-title">{article.title}</a>
@@ -71,6 +100,9 @@ export default function Feed ( { loggedin }) {
                     <p>No articles right now, check later or refresh the page.</p>
                 )}
             </ul>
+            {currentPage < totalPages && (
+              <button onClick={handleLoadMore}>Load More</button>
+            )}
         </div>
     )
 }
