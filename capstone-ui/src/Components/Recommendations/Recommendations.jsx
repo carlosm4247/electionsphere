@@ -1,8 +1,9 @@
-import React, { useContext } from 'react'
-import './Recommendations.css'
+import React, { useContext } from 'react';
+import './Recommendations.css';
 import { questionsWithOptions, partiesOrganized } from '../../constants';
 import { UserContext } from '../../UserContext';
-import candidateData from '../../Data/candidates.json'
+import candidateData from '../../Data/candidates.json';
+import FollowButton from '../FollowButton/FollowButton.jsx'
 
 export default function Recommendations() {
 
@@ -116,11 +117,11 @@ export default function Recommendations() {
         <div className='recommendations-container'>
             <h3>Recommendations</h3>
             {topThreeCandidates.length > 0 ? (
-                <ul>
+                <div>
                     {topThreeCandidates.map(candidate => (
-                        <li key={candidate.name}>{candidate.name}</li>
+                        <div key={candidate.name}>{candidate.name} <FollowButton candidateName={candidate.name}/></div>
                     ))}
-                </ul>
+                </div>
             ) : (
                 <p>"No recommendations right now"</p>
             )}
