@@ -9,7 +9,7 @@ router.get("/news", async (req, res) => {
   let constructedQuery = ""
 
   try {
-    const apiKey = "-ulA1lO3iXKzCcJPqMXOVze7dFJzhO4Pw8h2M_PGdFY";
+    const apiKey = "VZG8IbDUv3wiOAQ96dSlfFC5ZSE2p6qeA5a7GBEaRoU";
     const apiUrl = "https://api.newscatcherapi.com/v2/search";
 
     const baseParams = {
