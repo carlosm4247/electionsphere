@@ -1,0 +1,779 @@
+{
+    "candidates": [
+      {
+        "name": "Donald J. Trump",
+        "party": "Republican Party",
+        "bio": [
+          {
+            "dob": "June 14, 1946",
+            "offices_held": ["President of the United States: 2017-2021"],
+            "intro": "Donald J. Trump is a businessman and politician who served as the 45th President of the United States from 2017 to 2021. Before entering politics, he was a real estate developer and television personality."
+          }
+        ],
+        "stances": {
+          "What is your stance on abortion?": [
+            "Pro-Life",
+            "Pro-life, and I also oppose abortion for victims of rape and incest"
+          ],
+          "Should convicted criminals have the right to vote?": [
+            "Felon Disenfranchisement",
+            "No"
+          ],
+          "Should funding for local police departments be redirected to social and community-based programs?": [
+            "Back The Blue",
+            "No, increase funding and training for police departments in higher crime rate communities"
+          ],
+          "Should the government increase or decrease military spending?": [
+            "Increase Military",
+            "Increase"
+          ],
+          "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
+            "Entitlement Cuts",
+            "No, the federal government should not increase funding for any social programs"
+          ],
+          "Should the U.S. raise taxes on the rich?": [
+            "Taxes", 
+            "No, keep the current tax structure"
+          ],
+          "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
+            "Trump Innocent",
+            "Yes, he did nothing wrong"
+          ],
+          "Should the government increase environmental regulations to prevent climate change?": [
+            "Climate Change Denial",
+            "No, global warming is a natural occurrence and there's nothing we can do"
+          ],
+          "Should the government raise the federal minimum wage?": [
+            "Lower Wages",
+            "No"
+          ],
+          "Should there be more restrictions on the current process of purchasing a gun?": [
+            "Gun Rights",
+            "No, the government should not infringe on the second amendment."
+          ],
+          "Should the federal government pay for tuition at four-year colleges and universities?": [
+            "Private Tuition",
+            "No"
+          ],
+          "Do you support affirmative action programs?": [
+            "Oppose Affirmative Action",
+            "No, and minority groups should not receive any favorable treatment"
+          ],
+          "Should the U.S. build a wall along the southern border?": [
+            "Build The Wall",
+            "Yes, and Mexico should pay for it"
+          ],
+          "Do you support the Affordable Care Act (Obamacare)?": [
+            "Private Healthcare",
+            "No, government should not be involved in healthcare"
+          ]
+        },
+        "position_summary": "During his time as president, Donald Trump's major policy achievements included tax reform, appointment of conservative judges, and efforts to reduce regulations."
+      },
+      {
+        "name": "Joseph R. Biden Jr.",
+        "party": "Democratic Party",
+        "bio": [
+          {
+            "dob": "November 20, 1942",
+            "offices_held": ["President of the United States: 2021-present", "Vice President of the United States: 2009-2017", "U.S. Senator from Delaware: 1973-2009"],
+            "intro": "Joseph R. Biden Jr. is a politician who became the 46th President of the United States in January 2021. He previously served as the Vice President of the United States under President Barack Obama from 2009 to 2017 and as a U.S. Senator from Delaware from 1973 to 2009."
+          }
+        ],
+        "stances": {
+          "What is your stance on abortion?": [
+            "Pro-Choice", 
+            "Pro-choice, and providing birth control, sex education, and more social services will help reduce the number of abortions"
+          ],
+          "Should convicted criminals have the right to vote?": [
+            "Enfranchisement",
+            "Yes, except for felons convicted of murder or violent crimes"
+          ],
+          "Should funding for local police departments be redirected to social and community-based programs?": [
+            "Community Policing",
+            "Yes, replace police with unarmed community-based responders for non-violent calls"
+          ],
+          "Should the government increase or decrease military spending?": [
+            "Military Spending",
+            "Neither, I am satisfied with the current amount of spending"
+          ],
+          "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
+            "Increase Entitlements",
+            "Yes"
+          ],
+          "Should the U.S. raise taxes on the rich?": [
+            "Rich Tax",
+            "Yes"
+          ],
+          "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
+            "Rule of Law",
+            "No, no one is above the law"
+          ],
+          "Should the government increase environmental regulations to prevent climate change?": [
+            "Increase regulations Incentivize Energy",
+            "Yes, and provide more incentives for alternative energy production"
+          ],
+          "Should the government raise the federal minimum wage?": [
+            "Living Wage",
+            "Yes, make it a living wage"
+          ],
+          "Should there be more restrictions on the current process of purchasing a gun?": [
+            "Gun Control",
+            "Yes, require more stringent background checks, training, and add more psychological testing."
+          ],
+          "Should the federal government pay for tuition at four-year colleges and universities?": [
+            "College For All",
+            "Yes"
+          ],
+          "Do you support affirmative action programs?": [
+            "Affirmative Action",
+            "Yes"
+          ],
+          "Should the U.S. build a wall along the southern border?": [
+            "Border Wall",
+            "Yes"
+          ],
+          "Do you support the Affordable Care Act (Obamacare)?": [
+            "Obamacare",
+            "Yes"
+          ]
+        },
+        "position_summary": "As President, Joseph Biden has focused on issues such as COVID-19 response, climate change, infrastructure, and economic recovery."
+      },
+      {
+        "name": "Jo Jorgensen",
+        "party": "Libertarian Party",
+        "bio": [
+          {
+            "dob": "May 1, 1957",
+            "offices_held": ["No prior political offices held"],
+            "intro": "Jo Jorgensen is a businesswoman and academic who ran for President as the Libertarian Party nominee."
+          }
+        ],
+        "stances": {
+          "What is your stance on abortion?": [
+            "Pro-Choice",
+            "Pro-choice, I don’t agree but the government has no right to ban it"
+          ],
+          "Should convicted criminals have the right to vote?": [
+            "Conditional Voting",
+            "Yes, but only after completing their sentences and parole/probation"
+          ],
+          "Should funding for local police departments be redirected to social and community-based programs?": [
+            "Back The Blue", 
+            "No, increase funding and training for police departments in higher crime rate communities"
+          ],
+          "Should the government increase or decrease military spending?": [
+            "Decrease Military", 
+            "Decrease"
+          ],
+          "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
+            "Entitlement Cuts", 
+            "No, the federal government should not increase funding for any social programs"
+          ],
+          "Should the U.S. raise taxes on the rich?": [
+            "Abolish Income Tax", 
+            "No, abolish the income tax, disallow all deductions and increase the sales tax"
+          ],
+          "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
+            "Rule of Law", 
+            "No, no one is above the law"
+          ],
+          "Should the government increase environmental regulations to prevent climate change?": [
+            "Climate Change Denial", 
+            "No, global warming is a natural occurrence and there's nothing we can do"
+          ],
+          "Should the government raise the federal minimum wage?": [
+            "Abolish Minimum Wage", 
+            "No, and remove any federal minimum wage"
+          ],
+          "Should there be more restrictions on the current process of purchasing a gun?": [
+            "Gun Rights", 
+            "No, current laws are already sufficient"
+          ],
+          "Should the federal government pay for tuition at four-year colleges and universities?": [
+            "Private Tuition", 
+            "No"
+          ],
+          "Do you support affirmative action programs?": [
+            "Oppose Affirmative Action", 
+            "No, and minority groups should not receive any favorable treatment"
+          ],
+          "Should the U.S. build a wall along the southern border?": [
+            "No Border Wall", 
+            "No, this would be too costly and ineffective"
+          ],
+          "Do you support the Affordable Care Act (Obamacare)?": [
+            "Private Healthcare", 
+            "No, open the markets so insurers can compete across state lines"
+          ]
+        },
+        "position_summary": "As a candidate for the Libertarian Party, Jo Jorgensen's positions reflect her party's emphasis on individual liberties, limited government, and free markets."
+      },
+      {
+        "name": "Howie Hawkins",
+        "party": "Green Party",
+        "bio": [
+          {
+            "dob": "December 8, 1952",
+            "offices_held": ["No prior political offices held"],
+            "intro": "Howie Hawkins is an activist and politician who ran for President as the Green Party nominee."
+          }
+        ],
+        "stances": {
+          "What is your stance on abortion?": [
+            "Pro-Choice",
+            "Pro-choice, and providing birth control, sex education, and more social services will help reduce the number of abortions"
+          ],
+          "Should convicted criminals have the right to vote?": [
+            "Enfranchisement", 
+            "Yes, every citizen deserves the right to vote"
+          ],
+          "Should funding for local police departments be redirected to social and community-based programs?": [
+            "Community Policing", 
+            "Yes, replace police with unarmed community-based responders for non-violent calls"
+          ],
+          "Should the government increase or decrease military spending?": [
+            "Decrease Military", 
+            "Decrease"
+          ],
+          "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
+            "Increase Entitlements", 
+            "Yes"
+          ],
+          "Should the U.S. raise taxes on the rich?": [
+            "Rich Tax", 
+            "Yes"
+          ],
+          "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
+            "Rule of Law", 
+            "No, no one is above the law"
+          ],
+          "Should the government increase environmental regulations to prevent climate change?": [
+            "Increase regulations Incentivize Energy", 
+            "Yes, and provide more incentives for alternative energy production"
+          ],
+          "Should the government raise the federal minimum wage?": [
+            "Living Wage", 
+            "Yes, make it a living wage"
+          ],
+          "Should there be more restrictions on the current process of purchasing a gun?": [
+            "Gun Control", 
+            "Yes, require more stringent background checks, training, and add more psychological testing."
+          ],
+          "Should the federal government pay for tuition at four-year colleges and universities?": [
+            "College For All", 
+            "Yes"
+          ],
+          "Do you support affirmative action programs?": [
+            "Racial Inequity", 
+            "Yes, but it's only a band-aid trying to heal a much larger issue and we should create more social programs to address racial inequity"
+          ],
+          "Should the U.S. build a wall along the southern border?": [
+            "No Border Wall", 
+            "No, this would be too costly and ineffective"
+          ],
+          "Do you support the Affordable Care Act (Obamacare)?": [
+            "Medicare For All", 
+            "Yes, but a mandatory single-payer system would be even better"
+          ]
+        },
+        "position_summary": "As a candidate for the Green Party, Howie Hawkins's positions reflect the party's focus on environmental sustainability, social justice, and progressive policies."
+      },
+      {
+        "name": "Don Blankenship",
+        "party": "Constitution Party",
+        "bio": [
+          {
+            "dob": "March 14, 1950",
+            "offices_held": ["No prior political offices held"],
+            "intro": "Don Blankenship is a former coal company executive who ran for President as the Constitution Party nominee."
+          }
+        ],
+        "stances": {
+          "What is your stance on abortion?": [
+            "Pro-Life",
+            "Pro-life, but allow in cases of rape, incest, or danger to the mother or child"
+          ],
+          "Should convicted criminals have the right to vote?": [
+            "Felon Disenfranchisement",
+            "No"
+          ],
+          "Should funding for local police departments be redirected to social and community-based programs?": [
+            "Back The Blue",
+            "No, increase funding and training for police departments in higher crime rate communities"
+          ],
+          "Should the government increase or decrease military spending?": [
+            "Increase Military",
+            "Increase"
+          ],
+          "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
+            "Entitlement Cuts",
+            "No, the federal government should not increase funding for any social programs"
+          ],
+          "Should the U.S. raise taxes on the rich?": [
+            "Lower Taxes",
+            "No, but lower the income tax rate and remove all existing tax loopholes for large corporations"
+          ],
+          "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
+            "Trump Innocent",
+            "Yes, he did nothing wrong"
+          ],
+          "Should the government increase environmental regulations to prevent climate change?": [
+            "Climate Change Denial",
+            "No, global warming is a natural occurrence and there's nothing we can do"
+          ],
+          "Should the government raise the federal minimum wage?": [
+            "Lower Wages",
+            "No"
+          ],
+          "Should there be more restrictions on the current process of purchasing a gun?": [
+            "Gun Rights",
+            "No, the government should not infringe on the second amendment."
+          ],
+          "Should the federal government pay for tuition at four-year colleges and universities?": [
+            "Private Tuition",
+            "No"
+          ],
+          "Do you support affirmative action programs?": [
+            "Oppose Affirmative Action",
+            "No, and minority groups should not receive any favorable treatment"
+          ],
+          "Should the U.S. build a wall along the southern border?": [
+            "Border Wall", 
+            "Yes"
+          ],
+          "Do you support the Affordable Care Act (Obamacare)?": [
+            "Private Healthcare",
+            "No, government should not be involved in healthcare"
+          ]
+        },
+        "position_summary": "As a candidate for the Constitution Party, Don Blankenship's positions reflect the party's emphasis on constitutional principles, limited government, and conservative values."
+      },
+      {
+        "name": "Brian T. Carroll",
+        "party": "American Solidarity Party",
+        "bio": [
+          {
+            "dob": "March 3, 1972",
+            "offices_held": ["No prior political offices held"],
+            "intro": "Brian T. Carroll is a teacher and activist who ran for President as the American Solidarity Party nominee."
+          }
+        ],
+        "stances": {
+          "What is your stance on abortion?": [
+            "Pro-Life",
+            "Pro-life, and I also oppose abortion for victims of rape and incest"
+          ],
+          "Should convicted criminals have the right to vote?": [
+            "Conditional Voting", 
+            "Yes, but only after completing their sentences and parole/probation"
+          ],
+          "Should funding for local police departments be redirected to social and community-based programs?": [
+            "Back The Blue", 
+            "No, increase funding and training for police departments in higher crime rate communities"
+          ],
+          "Should the government increase or decrease military spending?": [
+            "Decrease Military", 
+            "Decrease"
+          ],
+          "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
+            "Increase Entitlements", 
+            "Yes"
+          ],
+          "Should the U.S. raise taxes on the rich?": [
+            "Rich Tax", 
+            "Yes"
+          ],
+          "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
+            "Rule of Law", 
+            "No, no one is above the law"
+          ],
+          "Should the government increase environmental regulations to prevent climate change?": [
+            "Increase regulations Incentivize Energy", 
+            "Yes, and provide more incentives for alternative energy production"
+          ],
+          "Should the government raise the federal minimum wage?": [
+            "Inflation-Adjusted Wage", 
+            "Yes, and adjust it every year according to inflation"
+          ],
+          "Should there be more restrictions on the current process of purchasing a gun?": [
+            "Gun Control", 
+            "Yes, require more stringent background checks, training, and add more psychological testing."
+          ],
+          "Should the federal government pay for tuition at four-year colleges and universities?": [
+            "Federal Scholarships", 
+            "No, but provide more scholarship opportunities for low-income students"
+          ],
+          "Do you support affirmative action programs?": [
+            "Racial Inequity", 
+            "Yes, but it's only a band-aid trying to heal a much larger issue and we should create more social programs to address racial inequity"
+          ],
+          "Should the U.S. build a wall along the southern border?": [
+            "No Border Wall", 
+            "No, this would be too costly and ineffective"
+          ],
+          "Do you support the Affordable Care Act (Obamacare)?": [
+            "Medicare For All", 
+            "Yes, but a mandatory single-payer system would be even better"
+          ]
+        },
+        "position_summary": "As a candidate for the American Solidarity Party, Brian T. Carroll's positions reflect the party's emphasis on pro-life values, social justice, and distributism."
+      },
+      {
+        "name": "Roque De La Fuente",
+        "party": "Alliance Party",
+        "bio": [
+          {
+            "dob": "October 10, 1954",
+            "offices_held": ["No prior political offices held"],
+            "intro": "Roque De La Fuente is a businessman and politician who ran for President as the Alliance Party nominee."
+          }
+        ],
+        "stances": {
+          "What is your stance on abortion?": [
+            "Pro-Life", 
+            "Pro-life, and I also oppose abortion for victims of rape and incest"
+          ],
+          "Should convicted criminals have the right to vote?": [
+            "Felon Disenfranchisement", 
+            "No"
+          ],
+          "Should funding for local police departments be redirected to social and community-based programs?": [
+            "Back The Blue", 
+            "No, increase funding and training for police departments in higher crime rate communities"
+          ],
+          "Should the government increase or decrease military spending?": [
+            "Increase Military", 
+            "Increase"
+          ],
+          "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
+            "Entitlement Cuts", 
+            "No, the federal government should not increase funding for any social programs"
+          ],
+          "Should the U.S. raise taxes on the rich?": [
+            "Taxes", 
+            "No, keep the current tax structure"
+          ],
+          "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
+            "Trump Innocent", 
+            "Yes, he did nothing wrong"
+          ],
+          "Should the government increase environmental regulations to prevent climate change?": [
+            "Climate Change Denial", 
+            "No, global warming is a natural occurrence and there's nothing we can do"
+          ],
+          "Should the government raise the federal minimum wage?": [
+            "Same Wages", 
+            "No"
+          ],
+          "Should there be more restrictions on the current process of purchasing a gun?": [
+            "Gun Rights", 
+            "No, current laws are already sufficient"
+          ],
+          "Should the federal government pay for tuition at four-year colleges and universities?": [
+            "Private Tuition", 
+            "No"
+          ],
+          "Do you support affirmative action programs?": [
+            "Oppose Affirmative Action", 
+            "No, and minority groups should not receive any favorable treatment"
+          ],
+          "Should the U.S. build a wall along the southern border?": [
+            "Border Wall", 
+            "Yes"
+          ],
+          "Do you support the Affordable Care Act (Obamacare)?": [
+            "Private Healthcare", 
+            "No, government should not be involved in healthcare"
+          ]
+        },
+        "position_summary": "As a candidate for the Alliance Party, Roque De La Fuente's positions reflect his party's emphasis on electoral reform and moderate policies."
+      },
+      {
+        "name": "Alyson Kennedy",
+        "party": "Socialist Workers Party",
+        "bio": [
+          {
+            "dob": "October 15, 1953",
+            "offices_held": ["No prior political offices held"],
+            "intro": "Alyson Kennedy is a trade unionist and activist who ran for President as the Socialist Workers Party nominee."
+          }
+        ],
+        "stances": {
+          "What is your stance on abortion?": [
+            "Pro-Choice",
+            "Pro-choice, and providing birth control, sex education, and more social services will help reduce the number of abortions"
+          ],
+          "Should convicted criminals have the right to vote?": [
+            "Enfranchisement", 
+            "Yes, every citizen deserves the right to vote"
+          ],
+          "Should funding for local police departments be redirected to social and community-based programs?": [
+            "Community Policing", 
+            "Yes, replace police with unarmed community-based responders for non-violent calls"
+          ],
+          "Should the government increase or decrease military spending?": [
+            "Decrease Military", 
+            "Decrease"
+          ],
+          "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
+            "Increase Entitlements", 
+            "Yes"
+          ],
+          "Should the U.S. raise taxes on the rich?": [
+            "Rich Tax", 
+            "Yes"
+          ],
+          "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
+            "Rule of Law", 
+            "No, no one is above the law"
+          ],
+          "Should the government increase environmental regulations to prevent climate change?": [
+            "Increase regulations Incentivize Energy", 
+            "Yes, and provide more incentives for alternative energy production"
+          ],
+          "Should the government raise the federal minimum wage?": [
+            "Living Wage", 
+            "Yes, make it a living wage"
+          ],
+          "Should there be more restrictions on the current process of purchasing a gun?": [
+            "Gun Control", 
+            "Yes, require more stringent background checks, training, and add more psychological testing."
+          ],
+          "Should the federal government pay for tuition at four-year colleges and universities?": [
+            "College For All", 
+            "Yes"
+          ],
+          "Do you support affirmative action programs?": [
+            "Racial Inequity", 
+            "Yes, but it's only a band-aid trying to heal a much larger issue and we should create more social programs to address racial inequity"
+          ],
+          "Should the U.S. build a wall along the southern border?": [
+            "No Border Wall", 
+            "No, this would be too costly and ineffective"
+          ],
+          "Do you support the Affordable Care Act (Obamacare)?": [
+            "Medicare For All", 
+            "Yes, but a mandatory single-payer system would be even better"
+          ]
+        },
+        "position_summary": "As a candidate for the Socialist Workers Party, Alyson Kennedy's positions her party's emphasis on socialist policies, workers' rights, and anti-capitalism."
+      },
+      {
+        "name": "Gloria La Riva",
+        "party": "Party for Socialism and Liberation",
+        "bio": [
+          {
+            "dob": "August 13, 1954",
+            "offices_held": ["No prior political offices held"],
+            "intro": "Gloria La Riva is an activist and socialist who ran for President as the Party for Socialism and Liberation nominee."
+          }
+        ],
+        "stances": {
+          "What is your stance on abortion?": [
+            "Pro-Choice",
+            "Pro-choice, and providing birth control, sex education, and more social services will help reduce the number of abortions"
+          ],
+          "Should convicted criminals have the right to vote?": [
+            "Enfranchisement", 
+            "Yes, every citizen deserves the right to vote"
+          ],
+          "Should funding for local police departments be redirected to social and community-based programs?": [
+            "Community Policing", 
+            "Yes, replace police with unarmed community-based responders for non-violent calls"
+          ],
+          "Should the government increase or decrease military spending?": [
+            "Decrease Military", 
+            "Decrease"
+          ],
+          "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
+            "Increase Entitlements", 
+            "Yes"
+          ],
+          "Should the U.S. raise taxes on the rich?": [
+            "Rich Tax", 
+            "Yes"
+          ],
+          "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
+            "Rule of Law", 
+            "No, no one is above the law"
+          ],
+          "Should the government increase environmental regulations to prevent climate change?": [
+            "Increase regulations Incentivize Energy", 
+            "Yes, and provide more incentives for alternative energy production"
+          ],
+          "Should the government raise the federal minimum wage?": [
+            "Living Wage", 
+            "Yes, make it a living wage"
+          ],
+          "Should there be more restrictions on the current process of purchasing a gun?": [
+            "Gun Control", 
+            "Yes, require more stringent background checks, training, and add more psychological testing."
+          ],
+          "Should the federal government pay for tuition at four-year colleges and universities?": [
+            "College For All", 
+            "Yes"
+          ],
+          "Do you support affirmative action programs?": [
+            "Racial Inequity", 
+            "Yes, but it's only a band-aid trying to heal a much larger issue and we should create more social programs to address racial inequity"
+          ],
+          "Should the U.S. build a wall along the southern border?": [
+            "No Border Wall", 
+            "No, this would be too costly and ineffective"
+          ],
+          "Do you support the Affordable Care Act (Obamacare)?": [
+            "Medicare For All", 
+            "Yes, but a mandatory single-payer system would be even better"
+          ]
+        },
+        "position_summary": "As a candidate for the Party for Socialism and Liberation, Gloria La Riva's positions reflect her party's emphasis on socialist revolution, anti-imperialism, and workers' rights."
+      },
+      {
+        "name": "Brock Pierce",
+        "party": "Independent",
+        "bio": [
+          {
+            "dob": "November 14, 1980",
+            "offices_held": ["No prior political offices held"],
+            "intro": "Brock Pierce is an entrepreneur and former child actor who ran for President as an Independent candidate."
+          }
+        ],
+        "stances": {
+          "What is your stance on abortion?": [
+            "Pro-Life",
+            "Pro-life, but allow in cases of rape, incest, or danger to the mother or child."
+          ],
+            "Should convicted criminals have the right to vote?": [
+            "Conditional Voting",
+            "Yes, but only after completing their sentences and parole/probation."
+          ],
+          "Should funding for local police departments be redirected to social and community-based programs?": [
+            "Community Policing",
+            "Yes, replace police with unarmed community-based responders for non-violent calls."
+          ],           
+          "Should the government increase or decrease military spending?": [
+            "Military Spending",
+            "Neither, I am satisfied with the current amount of spending."
+          ], 
+          "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
+            "Increase Entitlements",
+            "Yes."
+          ],
+          "Should the U.S. raise taxes on the rich?": [
+            "Rich Tax",
+            "Yes."
+          ],
+            
+          "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
+            "Rule of Law",
+            "No, no one is above the law."
+          ],
+            
+          "Should the government increase environmental regulations to prevent climate change?": [
+            "Increase regulations Incentivize Energy",
+            "Yes, and provide more incentives for alternative energy production."
+          ],
+          "Should the government raise the federal minimum wage?": [
+            "Living Wage",
+            "Yes, make it a living wage."
+          ],
+          "Should there be more restrictions on the current process of purchasing a gun?": [
+            "Gun Control",
+            "Yes, require more stringent background checks, training, and add more psychological testing."
+          ],
+            
+          "Should the federal government pay for tuition at four-year colleges and universities?": [
+            "College For All",
+            "Yes."
+          ],
+          "Do you support affirmative action programs?": [
+            "Affirmative Action",
+            "Yes."
+          ],
+          "Should the U.S. build a wall along the southern border?": [
+            "No Border Wall",
+            "No, this would be too costly and ineffective."
+          ],
+            
+          "Do you support the Affordable Care Act (Obamacare)?": [
+            "Obamacare",
+            "Yes."
+          ]
+        },
+        "position_summary": "As an Independent candidate, Brock Pierce does not have formal positions within a specific political party, but he has advocated for cryptocurrency and blockchain technology."
+      },
+      {
+        "name": "Kanye West",
+        "party": "Birthday Party",
+        "bio": [
+        {
+            "dob": "June 8, 1977",
+            "offices_held": ["No prior political offices held"],
+            "intro": "Kanye West is a rapper, producer, and fashion designer who ran for President as an Independent candidate under the 'Birthday Party' label."
+        }
+        ],
+        "stances": {
+          "What is your stance on abortion?": [
+            "Pro-Life",
+            "Pro-life, and I also oppose abortion for victims of rape and incest"
+          ],
+          "Should convicted criminals have the right to vote?": [
+            "Enfranchisement",
+            "Yes, every citizen deserves the right to vote"
+          ],
+          "Should funding for local police departments be redirected to social and community-based programs?": [
+            "Community Policing",
+            "Yes, replace police with unarmed community-based responders for non-violent calls"
+          ],
+          "Should the government increase or decrease military spending?": [
+            "Increase Military",
+            "Increase"
+          ],
+          "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
+            "Increase Entitlements",
+            "Yes"
+          ],
+          "Should the U.S. raise taxes on the rich?": [
+            "Rich Tax",
+            "Yes"
+          ],
+          "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
+            "Rule of Law",
+            "No, no one is above the law"
+          ],
+          "Should the government increase environmental regulations to prevent climate change?": [
+            "Increase regulations Incentivize Energy",
+            "Yes, and provide more incentives for alternative energy production"
+          ],
+          "Should the government raise the federal minimum wage?": [
+            "Living Wage",
+            "Yes, make it a living wage"
+          ],
+          "Should there be more restrictions on the current process of purchasing a gun?": [
+            "Gun Ban",
+            "Yes, all guns should be banned from private citizen ownership."
+          ],
+          "Should the federal government pay for tuition at four-year colleges and universities?": [
+            "College For All",
+            "Yes"
+          ],
+          "Do you support affirmative action programs?": [
+            "Affirmative Action",
+            "Yes"
+          ],
+          "Should the U.S. build a wall along the southern border?": [
+            "No Border Wall",
+            "No, this would be too costly and ineffective"
+          ],
+          "Do you support the Affordable Care Act (Obamacare)?": [
+            "Obamacare",
+            "Yes"
+          ]
+        },
+        "position_summary": "As an Independent candidate, Kanye West does not have formal positions within a specific political party."
+      }
+    ]
+}
+  
