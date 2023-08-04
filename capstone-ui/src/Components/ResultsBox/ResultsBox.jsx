@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
 import electionResults from "../../Data/2020presidential.json"
 import "./ResultsBox.css"
@@ -59,6 +59,19 @@ export default function ResultsBox( { locationLevel, countyFIPS } ) {
 
     candidates.sort((a, b) => b.voteCount - a.voteCount);
 
+    const [selectedCandidates, setSelectedCandidates] = useState([])
+
+    function handleClick(key) {
+        setSelectedCandidates((selected) => {
+            if (selected.includes(key)) {
+                return selected.filter((candKey) => candKey != key);
+            }
+            else {
+                return selected.concat(key);
+            }
+        })
+    }
+
     return (
         <div className="results-box">
           <table>
@@ -71,7 +84,10 @@ export default function ResultsBox( { locationLevel, countyFIPS } ) {
             </thead>
             <tbody>
               {candidates.map((candidate) => (
-                <tr key={candidate.key}>
+                <tr key={candidate.key}
+                    onClick={() => handleClick(candidate.key)}
+                    className={selectedCandidates.includes(candidate.key) ? "selected" : ""}
+                    >
                   <td>{candidate.name}</td>
                   <td>{candidate.voteCount}</td>
                   <td>{candidate.percentage}</td>
