@@ -7,6 +7,7 @@ import PresidentialRaces from '../PresidentialRaces/PresidentialRaces';
 import PresidentStatePage from '../PresidentStatePage/PresidentStatePage';
 import "./App.css";
 import { options} from "../../constants.js"
+import FollowingPopup from '../FollowingPopup/FollowingPopup';
 
 export default function App() {
 
@@ -27,7 +28,16 @@ export default function App() {
     updateUser(null);
   };
 
-  const [selectedCandidates, setSelectedCandidates] = useState([])
+  const [selectedCandidates, setSelectedCandidates] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleFollowingListClick = () => {
+    setShowPopup(true);
+  }
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  }
 
   return (
     <div className='app'>
@@ -41,12 +51,18 @@ export default function App() {
                   ))}
               </div>
               <h2 className="title">Website Name</h2>
-              <div className='user-info'>
+              <div className='login-section'>
                 {user ? (
-                  <>
-                  <span>Welcome, {user.username}! |</span>
-                  <button onClick={handleLogout}>Logout</button>
-                  </>
+                  <div className='profile'>
+                    <div className='user-info'>
+                      <div>{user.username}</div>
+                      <div>Zip Code: {user.zipcode}</div>
+                      <div className="following-list" onClick={handleFollowingListClick}>Candidates Followed: {user.following.length}</div>
+                    </div>
+                    <div className='logout'>
+                      <button onClick={handleLogout}>Logout</button>
+                    </div>
+                  </div>
                 ) : (
                   <Link to="/login"><button>Login</button></Link>
                 )}
@@ -66,8 +82,10 @@ export default function App() {
                                                                 setSelectedCandidates={setSelectedCandidates}
                                                             />}/>
               </Routes>
-
             </div>
+            {showPopup && (
+              <FollowingPopup handleClosePopup={handleClosePopup} />
+            )}
           </main>
         </BrowserRouter>
       </UserContext.Provider>

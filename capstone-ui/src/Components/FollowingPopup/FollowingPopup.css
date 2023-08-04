@@ -1,0 +1,27 @@
+.popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid white;
+    background-color: black;
+    width: 25%;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 0px;
+}
+
+.close {
+    position: relative;
+    left: 70%;
+    cursor: pointer;
+}
