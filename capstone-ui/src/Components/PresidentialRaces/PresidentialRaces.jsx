@@ -1,7 +1,8 @@
-import * as React from "react"
-import InteractiveMap from "../InteractiveMap/InteractiveMap"
-import ResultsBox from "../ResultsBox/ResultsBox"
-import CandidateView from "../CandidateView/CandidateView"
+import * as React from "react";
+import InteractiveMap from "../InteractiveMap/InteractiveMap";
+import ResultsBox from "../ResultsBox/ResultsBox";
+import CandidateView from "../CandidateView/CandidateView";
+import "./PresidentialRaces.css";
 
 export default function PresidentialRaces({ selectedCandidates, setSelectedCandidates }) {
     return (
@@ -11,20 +12,22 @@ export default function PresidentialRaces({ selectedCandidates, setSelectedCandi
                     raceType='president'
                 />
             </div>
-            <div className="results-container">
-                <ResultsBox 
-                    locationLevel={1}
-                    selectedCandidates={selectedCandidates}
-                    setSelectedCandidates={setSelectedCandidates} 
-                />
-            </div>
-            <div className="candidate-comparison-container">
-                {selectedCandidates ? (selectedCandidates.map((candidate) => (
-                            <CandidateView
-                                key={candidate.key}
-                                candidateName={candidate.name}
-                            />
-                        ))) : <></>}
+            <div className="info">
+                <div className="results-container">
+                    <ResultsBox 
+                        locationLevel={1}
+                        selectedCandidates={selectedCandidates}
+                        setSelectedCandidates={setSelectedCandidates} 
+                    />
+                </div>
+                <div className="candidate-comparison-container">
+                    {selectedCandidates ? (selectedCandidates.map((candidate) => (
+                                <CandidateView
+                                    key={candidate.key}
+                                    candidateName={candidate.name}
+                                />
+                            ))) : <></>}
+                </div>
             </div>
         </div>
     )

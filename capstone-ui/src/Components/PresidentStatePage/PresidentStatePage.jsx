@@ -13,20 +13,22 @@ export default function PresidentialStatePage( { selectedCandidates, setSelected
             <div className="map-container">
                 <StateMap stateName={stateName} />
             </div>
-            <div className="results-container">
-                <ResultsBox 
-                    locationLevel={2}
-                    selectedCandidates={selectedCandidates}
-                    setSelectedCandidates={setSelectedCandidates}
-                />
-            </div>
-            <div className="candidate-comparison-container">
-                {selectedCandidates ? (selectedCandidates.map((candidate) => (
-                            <CandidateView
-                                key={candidate.key}
-                                candidateName={candidate.name}
-                            />
-                        ))) : <></>}
+            <div className="info">
+                <div className="results-container">
+                    <ResultsBox 
+                        locationLevel={2}
+                        selectedCandidates={selectedCandidates}
+                        setSelectedCandidates={setSelectedCandidates}
+                    />
+                </div>
+                <div className="candidate-comparison-container">
+                    {selectedCandidates ? (selectedCandidates.map((candidate) => (
+                                <CandidateView
+                                    key={candidate.key}
+                                    candidateName={candidate.name}
+                                />
+                            ))) : <></>}
+                </div>
             </div>
         </div>
     )
