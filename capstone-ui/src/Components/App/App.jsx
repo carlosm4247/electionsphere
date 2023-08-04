@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <div className='app'>
-      <UserContext.Provider value={{ user, updateUser }}>
+      <UserContext.Provider value={{ user, setUser, updateUser }}>
         <BrowserRouter>
           <main>
             <div className="navbar">
