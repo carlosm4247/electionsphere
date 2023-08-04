@@ -101,7 +101,9 @@ const questionsWithOptions = {
   ]
 };
 
-const parties = ["Democratic Party", "Republican Party", "Independent", "Libertarian Party", "Green Party", "Constitution Party", "Alliance Party", "Other"];
+const parties = ["Democratic Party", "Republican Party", "Independent", "Libertarian Party", "Green Party", "Constitution Party", "Alliance Party"];
+
+const partiesOrganized = ["Green Party", "Democratic Party", "Alliance Party", "Independent", "Republican Party", "Libertarian Party", "Constitution Party"];
 
 const baseCandidates = {
     "Donald J. Trump": [0, 0],
@@ -117,4 +119,4 @@ const baseCandidates = {
     "Kanye West": [0, 0]
 }
 
-export { options, unclickables, questionsWithOptions, parties, baseCandidates };
+export { options, unclickables, questionsWithOptions, parties, baseCandidates, partiesOrganized };
