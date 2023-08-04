@@ -8,6 +8,7 @@ import PresidentStatePage from '../PresidentStatePage/PresidentStatePage';
 import "./App.css";
 import { options} from "../../constants.js"
 import FollowingPopup from '../FollowingPopup/FollowingPopup';
+import Feed from '../Feed/Feed';
 
 export default function App() {
 
@@ -70,7 +71,7 @@ export default function App() {
             </div>
             <div className="content">
               <Routes>
-                <Route path='/' element={<p>Message</p>}/>
+                <Route path='/' element={ user ? (<Feed loggedin={true}/>) : (<Feed loggedin={false}/>)}/>
                 <Route path='/president' element={<PresidentialRaces 
                                                     selectedCandidates={selectedCandidates} 
                                                     setSelectedCandidates={setSelectedCandidates}
