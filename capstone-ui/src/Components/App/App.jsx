@@ -9,6 +9,7 @@ import "./App.css";
 import { options} from "../../constants.js"
 import FollowingPopup from '../FollowingPopup/FollowingPopup';
 import Feed from '../Feed/Feed';
+import Recommendations from '../Recommendations/Recommendations';
 
 export default function App() {
 
@@ -71,7 +72,12 @@ export default function App() {
             </div>
             <div className="content">
               <Routes>
-                <Route path='/' element={ user ? (<Feed loggedin={true}/>) : (<Feed loggedin={false}/>)}/>
+                <Route path='/' element={ user ? (<div className='loggedin-home'>
+                                                    <Feed loggedin={true}/> 
+                                                    <Recommendations /> 
+                                                  </div>) : (
+                                                    <Feed loggedin={false}/>
+                                                  )}/>
                 <Route path='/president' element={<PresidentialRaces 
                                                     selectedCandidates={selectedCandidates} 
                                                     setSelectedCandidates={setSelectedCandidates}

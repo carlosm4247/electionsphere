@@ -1,0 +1,9 @@
+.recommendations-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 15px;
+    width: 20%;
+}
