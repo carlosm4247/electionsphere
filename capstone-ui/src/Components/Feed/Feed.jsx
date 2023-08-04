@@ -80,6 +80,10 @@ export default function Feed ( { loggedin }) {
       }
     };
 
+    const LoadingFallback = () => {
+      return <div class="loading-spinner"></div>
+    }
+
     return (
         <div className="feed-container">
             <h3>Feed</h3>
@@ -100,6 +104,7 @@ export default function Feed ( { loggedin }) {
                     <p>No articles right now, check later or refresh the page.</p>
                 )}
             </ul>
+            {isFetching && <LoadingFallback />}
             {currentPage < totalPages && (
               <button onClick={handleLoadMore}>Load More</button>
             )}
