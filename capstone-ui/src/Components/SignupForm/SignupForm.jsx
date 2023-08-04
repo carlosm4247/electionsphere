@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../UserContext";
-import { questionsWithOptions } from "../../constants";
+import { questionsWithOptions, parties } from "../../constants";
 import "./SignupForm.css";
 
 const SignupForm = () => {
@@ -9,6 +9,7 @@ const SignupForm = () => {
     const [password, setPassword] = useState("");
     const [zipcode, setZipcode] = useState("");
     const [stances, setStances] = useState({})
+    const [preferredParty, setPreferredParty] = useState("");
 
     const { updateUser } = useContext(UserContext);
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ const SignupForm = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username, password, zipcode, stances }),
+                body: JSON.stringify({ username, password, zipcode, stances, preferredParty }),
                 credentials: "include"
             });
 
@@ -42,7 +43,8 @@ const SignupForm = () => {
                 setUsername("");
                 setPassword("");
                 setZipcode("");
-                setStances({})
+                setStances({});
+                setPreferredParty("");
 
                 updateUser(loggedInUser);
 
@@ -92,6 +94,24 @@ const SignupForm = () => {
                         onChange={(e) => setZipcode(e.target.value)}
                         required 
                     />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="preferred-party">Preferred Party:</label>
+                    <select
+                        id="preferred-party"
+                        value={preferredParty}
+                        onChange={(e) => {
+                            setPreferredParty(e.target.value)
+                        }}
+                        required
+                        >
+                        <option value="">Select your party:</option>
+                        {parties.map((party, index) => (
+                            <option key={index} value={party}>
+                            {party}
+                            </option>
+                        ))} 
+                    </select>
                 </div>
                 <h3>Stances</h3>
                 {Object.entries(questionsWithOptions).map(([question, options]) => (

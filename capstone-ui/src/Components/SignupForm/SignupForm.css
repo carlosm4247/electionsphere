@@ -31,14 +31,15 @@
     margin-bottom: 10px;
 }
 
-.signup-form select {
+.signup-form .stances select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     width: 100%;
 }
 
-.signup-form input {
+.signup-form input,
+.signup-form .form-group select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;

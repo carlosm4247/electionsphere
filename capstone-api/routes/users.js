@@ -5,7 +5,7 @@ import { User } from "../models/users.js";
 const router = express.Router();
 
 router.post("/users", async (req, res) => {
-    const { username, password, zipcode, stances } = req.body;
+    const { username, password, zipcode, stances, preferredParty } = req.body;
 
     try {
         const existingUser = await User.findOne({ where:{ username } });
@@ -16,7 +16,7 @@ router.post("/users", async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const newUser = await User.create({ username, password: hashedPassword, zipcode, stances });
+        const newUser = await User.create({ username, password: hashedPassword, zipcode, stances, preferredParty });
 
         req.session.user = newUser;
 

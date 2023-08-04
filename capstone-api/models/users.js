@@ -24,6 +24,11 @@ export const User = sequelize.define("User", {
         type: DataTypes.JSON,
         allowNull: false,
         defaultValue: {},
+    },
+    preferredParty: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "",
     }
 
 })
