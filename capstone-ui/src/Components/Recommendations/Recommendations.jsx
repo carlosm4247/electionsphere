@@ -9,8 +9,6 @@ export default function Recommendations() {
 
     const { user } = useContext(UserContext);
 
-    console.log(candidateData.candidates)
-
     const convertPartyToVector = (selectedParty) => {
         const vector = partiesOrganized.map((party) => (party === selectedParty ? 1 : 0));
         return vector;
@@ -93,8 +91,6 @@ export default function Recommendations() {
 
         
             const score = userWeight * userSimilarity + followedWeight * followedSimilarity + partyWeight * partySimilarity + clicksWeight * normalizedClicks;
-
-            console.log(userWeight, userSimilarity, followedWeight, followedSimilarity, partyWeight, partySimilarity, clicksWeight, normalizedClicks);
         
             return {
                 name: candidate.name,
@@ -103,8 +99,6 @@ export default function Recommendations() {
         });
     
         candidateScores.sort((a, b) => b.score - a.score);
-
-        console.log(candidateScores)
       
         return candidateScores;
       };

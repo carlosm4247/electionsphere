@@ -54,7 +54,6 @@ export default function Feed ( { loggedin }) {
     }, [searchQuery]);
 
     useEffect(() => {
-      console.log("Total Pages:", totalPages);
     }, [totalPages]);
 
     useEffect(() => {
