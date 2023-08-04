@@ -54,9 +54,6 @@ export default function Feed ( { loggedin }) {
     }, [searchQuery]);
 
     useEffect(() => {
-    }, [totalPages]);
-
-    useEffect(() => {
       if (isFetching && fetchTimerRef.current) {
         clearTimeout(fetchTimerRef.current);
       }
