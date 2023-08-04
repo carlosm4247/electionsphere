@@ -1,14 +1,16 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../UserContext";
+import { questionsWithOptions } from "../../constants";
 import "./SignupForm.css";
 
 const SignupForm = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [zipcode, setZipcode] = useState("");
-    const { updateUser } = useContext(UserContext);
+    const [stances, setStances] = useState({})
 
+    const { updateUser } = useContext(UserContext);
     const navigate = useNavigate();
 
     const isValidZip = (zip) => {
@@ -29,7 +31,7 @@ const SignupForm = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username, password, zipcode }),
+                body: JSON.stringify({ username, password, zipcode, stances }),
                 credentials: "include"
             });
 
@@ -40,6 +42,7 @@ const SignupForm = () => {
                 setUsername("");
                 setPassword("");
                 setZipcode("");
+                setStances({})
 
                 updateUser(loggedInUser);
 
@@ -90,6 +93,29 @@ const SignupForm = () => {
                         required 
                     />
                 </div>
+                <h3>Stances</h3>
+                {Object.entries(questionsWithOptions).map(([question, options]) => (
+                <div className="form-group" key={question}>
+                    <div className="stances">
+                        <label htmlFor={question}>{question}</label>
+                        <select
+                            id={question}
+                            value={stances[question] || ""}
+                            onChange={(e) =>
+                                setStances({ ...stances, [question]: e.target.value })
+                            }
+                            required
+                        >
+                        <option value="">Select your stance</option>
+                        {options.map((option, index) => (
+                            <option key={index} value={option}>
+                            {option}
+                            </option>
+                        ))}
+                        </select>
+                    </div>
+                </div>
+                ))}
                 <button type="submit">Sign Up</button>
                 <p>Already have an account? <Link to="/login">Login</Link></p>
             </form>

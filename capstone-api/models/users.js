@@ -19,6 +19,11 @@ export const User = sequelize.define("User", {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
         defaultValue: []
+    },
+    stances: {
+        type: DataTypes.JSON,
+        allowNull: false,
+        defaultValue: {},
     }
 
 })
