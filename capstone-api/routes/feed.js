@@ -9,22 +9,26 @@ router.get("/news", async (req, res) => {
   let constructedQuery = ""
 
   try {
-    const apiKey = "gJt8QAwXGc_mzm8Nc9Gvj975ZSnKD-A9Pr2oBIkr9g4";
+    const apiKey = "2ynDS7Gsmg-NOYy6PmH8spISzYsfhFCZSqZNU-qAU88";
     const apiUrl = "https://api.newscatcherapi.com/v2/search";
 
     const baseParams = {
         lang: "en", 
         countries: "US", 
         topic: "politics",
-        sources: "foxnews.com,wsj.com,nytimes.com,cnn.com,npr.org,washingtonpost.com,apnews.com,msnbc.com",
         sort_by: "date",
         page_size: 20
     };
 
+    if (loggedIn === "false") {
+        baseParams.sources = "foxnews.com,wsj.com,nytimes.com,cnn.com,npr.org,washingtonpost.com,apnews.com,msnbc.com";
+    }
+
+    const parsedQuery = JSON.parse(query);
+
     if (loggedIn === "true") {
-        constructedQuery = query.length > 0 ? `(${query.join(" OR ")})` : "politics";
-    } 
-    else {
+        constructedQuery = parsedQuery.map((tag) => `"${tag}"`).join(" OR ");
+    } else {
         constructedQuery = "politics";
     }
 

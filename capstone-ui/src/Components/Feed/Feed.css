@@ -9,11 +9,11 @@
 }
 
 .article-container {
-    display: flex;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid white;
     border-radius: 10px;
+    width: 1000px;
 }
 
 .article-title {
