@@ -5,11 +5,11 @@ const router = express.Router();
 
 router.get("/news", async (req, res) => {
 
-  const { query, loggedIn } = req.query;
+  const { query, loggedIn, page } = req.query;
   let constructedQuery = ""
 
   try {
-    const apiKey = "2ynDS7Gsmg-NOYy6PmH8spISzYsfhFCZSqZNU-qAU88";
+    const apiKey = "VZG8IbDUv3wiOAQ96dSlfFC5ZSE2p6qeA5a7GBEaRoU";
     const apiUrl = "https://api.newscatcherapi.com/v2/search";
 
     const baseParams = {
@@ -32,7 +32,7 @@ router.get("/news", async (req, res) => {
         constructedQuery = "politics";
     }
 
-    const params = { ...baseParams, q: constructedQuery };
+    const params = { ...baseParams, q: constructedQuery, page: page || 1 };
 
     const response = await axios.get(apiUrl, {
         params,
@@ -42,7 +42,9 @@ router.get("/news", async (req, res) => {
     });
 
     const articles = response.data.articles;
-    res.json({ articles });
+    const totalPages = response.data.total_pages;
+
+    res.json({ articles, totalPages });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error" });
