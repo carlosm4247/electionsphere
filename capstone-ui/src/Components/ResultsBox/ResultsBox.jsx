@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import electionResults from "../../Data/2020presidential.json"
 import "./ResultsBox.css"
 
-export default function ResultsBox( { locationLevel, countyFIPS } ) {
+export default function ResultsBox( { locationLevel, countyFIPS, selectedCandidates, setSelectedCandidates } ) {
     //locationLevels: 1 = country, 2 = state, 3 = county
 
     let data = []
@@ -59,18 +59,17 @@ export default function ResultsBox( { locationLevel, countyFIPS } ) {
 
     candidates.sort((a, b) => b.voteCount - a.voteCount);
 
-    const [selectedCandidates, setSelectedCandidates] = useState([])
-
-    function handleClick(key) {
-        setSelectedCandidates((selected) => {
-            if (selected.includes(key)) {
-                return selected.filter((candKey) => candKey != key);
-            }
-            else {
-                return selected.concat(key);
-            }
-        })
-    }
+    function handleClick(key, name) {
+      setSelectedCandidates((selected) => {
+          const foundCandidate = selected.findIndex((candidate) => candidate.key === key);
+          if (foundCandidate !== -1) {
+              return selected.filter((candidate) => candidate.key !== key);
+          } else {
+              const updatedCandidates = selected.concat({ key, name });
+              return updatedCandidates.slice(-2);
+          }
+      });
+  }
 
     return (
         <div className="results-box">
@@ -85,8 +84,8 @@ export default function ResultsBox( { locationLevel, countyFIPS } ) {
             <tbody>
               {candidates.map((candidate) => (
                 <tr key={candidate.key}
-                    onClick={() => handleClick(candidate.key)}
-                    className={selectedCandidates.includes(candidate.key) ? "selected" : ""}
+                    onClick={() => handleClick(candidate.key, candidate.name)}
+                    className={ (selectedCandidates && (selectedCandidates.some((c) => c.key === candidate.key))) ? "selected" : ""}
                     >
                   <td>{candidate.name}</td>
                   <td>{candidate.voteCount}</td>

@@ -27,6 +27,8 @@ export default function App() {
     updateUser(null);
   };
 
+  const [selectedCandidates, setSelectedCandidates] = useState([])
+
   return (
     <div className='app'>
       <UserContext.Provider value={{ user, updateUser }}>
@@ -53,10 +55,16 @@ export default function App() {
             <div className="content">
               <Routes>
                 <Route path='/' element={<p>Message</p>}/>
-                <Route path='/president' element={<PresidentialRaces />}/>
+                <Route path='/president' element={<PresidentialRaces 
+                                                    selectedCandidates={selectedCandidates} 
+                                                    setSelectedCandidates={setSelectedCandidates}
+                                                  />}/>
                 <Route path='/login' element={<LoginForm />}/>
                 <Route path='/signup' element={<SignupForm />}/>
-                <Route path='/president/:stateName' element={<PresidentStatePage />}/>
+                <Route path='/president/:stateName' element={<PresidentStatePage 
+                                                                selectedCandidates={selectedCandidates}
+                                                                setSelectedCandidates={setSelectedCandidates}
+                                                            />}/>
               </Routes>
 
             </div>
