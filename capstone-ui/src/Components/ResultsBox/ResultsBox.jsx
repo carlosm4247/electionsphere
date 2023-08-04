@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useParams } from "react-router-dom"
 import electionResults from "../../Data/2020presidential.json"
 import "./ResultsBox.css"
 import { unclickables } from '../../constants.js';
+import { UserContext } from '../../UserContext';
 
 export default function ResultsBox( { locationLevel, countyFIPS, selectedCandidates, setSelectedCandidates } ) {
     //locationLevels: 1 = country, 2 = state, 3 = county
@@ -12,6 +13,7 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
     const { stateName } = useParams();
     const initialCandidates = 5;
     const [candidatesShowing, setCandidatesShowing] = useState(initialCandidates);
+    const { user } = useContext(UserContext);
 
     function addCandidate(key, name, voteCount, percentage) {
         let candidate = {
@@ -62,7 +64,35 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
 
     candidates.sort((a, b) => b.voteCount - a.voteCount);
 
-    function handleClick(key, name) {
+    async function handleClick(key, name, e) {
+      e.preventDefault()
+
+      try {
+        const clickedCandidate = candidates.find(candidate => candidate.name === name);
+
+        if (clickedCandidate) {
+          const response = await fetch("http://localhost:3001/click", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              username: user.username,
+              candidateName: clickedCandidate.name
+            }),
+          });
+
+          if (response.ok) {
+            const { clickCount } = await response.json();
+          } else {
+            console.error("Failed to update click count:", response.status, response.statusText);
+          }
+        }
+      }
+      catch (error) {
+        console.error("Error clicking candidate:", error);
+      }
+
       if (!unclickables.includes(name)) {
         setSelectedCandidates((selected) => {
             const foundCandidate = selected.findIndex((candidate) => candidate.key === key);
@@ -89,7 +119,7 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
             <tbody>
               {candidates.slice(0, candidatesShowing).map((candidate) => (
                 <tr key={candidate.key}
-                    onClick={() => handleClick(candidate.key, candidate.name)}
+                    onClick={() => handleClick(candidate.key, candidate.name, event)}
                     className={ (selectedCandidates && (selectedCandidates.some((c) => c.key === candidate.key))) ? "selected" : ""}
                     >
                   <td>{candidate.name}</td>

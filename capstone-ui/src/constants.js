@@ -103,4 +103,18 @@ const questionsWithOptions = {
 
 const parties = ["Democratic Party", "Republican Party", "Independent", "Libertarian Party", "Green Party", "Constitution Party", "Alliance Party", "Other"];
 
-export { options, unclickables, questionsWithOptions, parties };
+const baseCandidates = {
+    "Donald J. Trump": [0, 0],
+    "Joseph R. Biden Jr.": [0, 0],
+    "Jo Jorgensen": [0, 0],
+    "Howie Hawkins": [0, 0],
+    "Don Blankenship": [0, 0],
+    "Brian T. Carroll": [0, 0],
+    "Rocky De La Fuente": [0, 0],
+    "Alyson Kennedy": [0, 0],
+    "Gloria La Riva": [0, 0],
+    "Brock Pierce": [0, 0],
+    "Kanye West": [0, 0]
+}
+
+export { options, unclickables, questionsWithOptions, parties, baseCandidates };

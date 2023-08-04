@@ -29,6 +29,10 @@ export const User = sequelize.define("User", {
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: "",
+    },
+    candidates: {
+        type: DataTypes.JSON,
+        allowNull: false,
+        defaultValue: {}
     }
-
 })
