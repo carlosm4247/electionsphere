@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Recommendations.css'
 import { questionsWithOptions, partiesOrganized } from '../../constants';
+import { UserContext } from '../../UserContext';
+import candidateData from '../../Data/candidates.json'
 
 export default function Recommendations() {
+
+    const { user } = useContext(UserContext);
+
+    console.log(candidateData.candidates)
 
     const convertPartyToVector = (selectedParty) => {
         const vector = partiesOrganized.map((party) => (party === selectedParty ? 1 : 0));
@@ -47,9 +53,77 @@ export default function Recommendations() {
         return averageSimilarity;
     }
 
+    const calculateCandidateScores = () => {
+        const candidateScores = candidateData.candidates.map((candidate) => {
+            const candidateStances = candidate.stances;
+        
+            const userStances = user.stances;
+            const followedCandidates = candidateData.candidates.filter((c) => user.following.includes(c.name));
+            const followedStances = followedCandidates.map((c) => c.stances);
+        
+            const userSimilarity = calculateAverageHammingDistance(userStances, candidateStances);
+            
+            const followedSimilarities = followedStances.map((followedStancesSet) =>
+                calculateAverageHammingDistance(followedStancesSet, candidateStances)
+            );
+
+            const validFollowedSimilarities = followedSimilarities.filter((similarity) => !Number.isNaN(similarity));
+            const followedSimilarity = validFollowedSimilarities.length > 0 ? 
+                validFollowedSimilarities.reduce((acc, similarity) => acc + similarity, 0) / validFollowedSimilarities.length
+                : 0;
+
+            const partyVector1 = convertPartyToVector(user.preferredParty);
+            const partyVector2 = convertPartyToVector(candidate.party);
+            const partySimilarity = 1 - calculateHammingDistance(partyVector1, partyVector2) / partyVector1.length;
+        
+            const userWeight = 0.5;
+            const followedWeight = 0.1;
+            const partyWeight = 0.2;
+            const clicksWeight = 0.2;
+
+            let maxClicks = 0;
+
+            for (const candidate in user.candidates) {
+                const clicks = user.candidates[candidate][0];
+                maxClicks += clicks;
+            }
+
+            const normalizedClicks = user.candidates[candidate.name][0]/maxClicks
+
+        
+            const score = userWeight * userSimilarity + followedWeight * followedSimilarity + partyWeight * partySimilarity + clicksWeight * normalizedClicks;
+
+            console.log(userWeight, userSimilarity, followedWeight, followedSimilarity, partyWeight, partySimilarity, clicksWeight, normalizedClicks);
+        
+            return {
+                name: candidate.name,
+                score,
+            };
+        });
+    
+        candidateScores.sort((a, b) => b.score - a.score);
+
+        console.log(candidateScores)
+      
+        return candidateScores;
+      };
+      
+      const candidateScores = calculateCandidateScores();
+
+      const topThreeCandidates = candidateScores.filter(candidate => !user.following.includes(candidate.name)).slice(0, 3);
+
     return (
         <div className='recommendations-container'>
             <h3>Recommendations</h3>
+            {topThreeCandidates.length > 0 ? (
+                <ul>
+                    {topThreeCandidates.map(candidate => (
+                        <li key={candidate.name}>{candidate.name}</li>
+                    ))}
+                </ul>
+            ) : (
+                <p>"No recommendations right now"</p>
+            )}
         </div>
     );
 }
