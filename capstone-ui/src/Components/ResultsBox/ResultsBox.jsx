@@ -5,14 +5,13 @@ import "./ResultsBox.css"
 import { unclickables } from '../../constants.js';
 import { UserContext } from '../../UserContext';
 
-export default function ResultsBox( { locationLevel, countyFIPS, selectedCandidates, setSelectedCandidates } ) {
+export default function ResultsBox( { locationLevel, countyFIPS, selectedCandidates, setSelectedCandidates, stateName } ) {
     //locationLevels: 1 = country, 2 = state, 3 = county
 
     let data = []
     let candidates = []
-    const { stateName } = useParams();
-    const initialCandidates = 5;
-    const [candidatesShowing, setCandidatesShowing] = useState(initialCandidates);
+    const pageSize = 5;
+    const [candidatesShowing, setCandidatesShowing] = useState(pageSize);
     const { user } = useContext(UserContext);
 
     function addCandidate(key, name, voteCount, percentage) {
@@ -50,7 +49,7 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
         })
     }
     else {
-        data = electionResults.data.races.find( (race) => race.state_slug === stateName ).counties.find((county) => (county.fips%1000) === (countyFIPS%1000))
+        data = electionResults.data.races.find( (race) => race.state_slug === stateName ).counties.find((county) => (county.fips%1000) == (countyFIPS%1000))
 
         for (let candidate in data.results) {
             const key = candidate;
@@ -130,7 +129,7 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
             </tbody>
           </table>
           {locationLevel != 3 && candidatesShowing < candidates.length && (
-            <button onClick={() => setCandidatesShowing((prev) => prev + initialCandidates)}>
+            <button onClick={() => setCandidatesShowing((prev) => prev + pageSize)}>
               Show More
             </button>
           )}

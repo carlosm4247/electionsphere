@@ -27,10 +27,13 @@ export default function Feed ( { loggedin }) {
 
         const data = await response.json();
 
-        const articlesArray = Object.values(data.articles);
-
-        if (Array.isArray(articlesArray)) {
-          setArticles((prevArticles) => [...prevArticles, ...articlesArray]);
+        if (data.articles && typeof data.articles === 'object') {
+          const articlesArray = Object.values(data.articles);
+          if (Array.isArray(articlesArray)) {
+            setArticles((prevArticles) => [...prevArticles, ...articlesArray]);
+          } else {
+            setArticles([]);
+          }
         } else {
           setArticles([]);
         }
@@ -52,9 +55,6 @@ export default function Feed ( { loggedin }) {
       setCurrentPage(1);
       fetchData(1);
     }, [searchQuery]);
-
-    useEffect(() => {
-    }, [totalPages]);
 
     useEffect(() => {
       if (isFetching && fetchTimerRef.current) {
@@ -80,7 +80,7 @@ export default function Feed ( { loggedin }) {
     };
 
     const LoadingFallback = () => {
-      return <div class="loading-spinner"></div>
+      return <div className="loading-spinner"></div>
     }
 
     return (

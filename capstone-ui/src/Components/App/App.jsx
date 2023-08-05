@@ -4,7 +4,6 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import SignupForm from '../SignupForm/SignupForm';
 import PresidentialRaces from '../PresidentialRaces/PresidentialRaces';
-import PresidentStatePage from '../PresidentStatePage/PresidentStatePage';
 import "./App.css";
 import { options} from "../../constants.js"
 import FollowingPopup from '../FollowingPopup/FollowingPopup';
@@ -84,10 +83,6 @@ export default function App() {
                                                   />}/>
                 <Route path='/login' element={<LoginForm />}/>
                 <Route path='/signup' element={<SignupForm />}/>
-                <Route path='/president/:stateName' element={<PresidentStatePage 
-                                                                selectedCandidates={selectedCandidates}
-                                                                setSelectedCandidates={setSelectedCandidates}
-                                                            />}/>
               </Routes>
             </div>
             {showPopup && (

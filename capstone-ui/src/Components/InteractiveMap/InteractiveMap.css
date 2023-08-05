@@ -3,3 +3,7 @@
     stroke: #333;
     stroke-width: 0.5;
 }
+
+.interactive-map-container {
+    position: relative;
+}

@@ -1,63 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as topojson from 'topojson-client';
 import usData from '../../data/us.json';
 import "./InteractiveMap.css";
+import { fipsStateCodes } from '../../constants';
+import StateMap from '../StateMap/StateMap';
 
-export default function InteractiveMap({ raceType }) {
-
-    const fipsStateCodes = {
-        '1': 'alabama',
-        '2': 'alaska',
-        '4': 'arizona',
-        '5': 'arkansas',
-        '6': 'california',
-        '8': 'colorado',
-        '9': 'connecticut',
-        '10': 'delaware',
-        '11': 'district-of-columbia',
-        '12': 'florida',
-        '13': 'georgia',
-        '15': 'hawaii',
-        '16': 'idaho',
-        '17': 'illinois',
-        '18': 'indiana',
-        '19': 'iowa',
-        '20': 'kansas',
-        '21': 'kentucky',
-        '22': 'louisiana',
-        '23': 'maine',
-        '24': 'maryland',
-        '25': 'massachusetts',
-        '26': 'michigan',
-        '27': 'minnesota',
-        '28': 'mississippi',
-        '29': 'missouri',
-        '30': 'montana',
-        '31': 'nebraska',
-        '32': 'nevada',
-        '33': 'new-hampshire',
-        '34': 'new-jersey',
-        '35': 'new-mexico',
-        '36': 'new-york',
-        '37': 'north-carolina',
-        '38': 'north-dakota',
-        '39': 'ohio',
-        '40': 'oklahoma',
-        '41': 'oregon',
-        '42': 'pennsylvania',
-        '44': 'rhode-island',
-        '45': 'south-carolina',
-        '46': 'south-dakota',
-        '47': 'tennessee',
-        '48': 'texas',
-        '49': 'utah',
-        '50': 'vermont',
-        '51': 'virginia',
-        '53': 'washington',
-        '54': 'west-virginia',
-        '55': 'wisconsin',
-        '56': 'wyoming',
-      };
+export default function InteractiveMap({ handleLocation, handleState, handleBackButton, selectedState, setSelectedState }) {
 
       const mapRef = useRef(null);
 
@@ -86,19 +34,25 @@ export default function InteractiveMap({ raceType }) {
         svg.selectAll('.state')
           .data(states)
           .enter().append('path')
-          .attr('class', 'state')
+          .attr('class', (d) => `state ${selectedState === fipsStateCodes[d.id] ? 'selected' : ''}`)
           .attr('d', path)
           .on('click', function(d) {
             const stateName = fipsStateCodes[d.id];
-            window.location.href = `/${raceType}/${stateName}`;
+            setSelectedState(stateName);
+            handleLocation(2);
+            handleState(stateName);
+            handleBackButton(true);
           });
     
         return () => {
           svg.remove();
         };
-      }, []);
+      }, [selectedState]);
 
     return (
-        <div ref={mapRef} className="interactive-map-container"></div>
+        <div ref={mapRef} className="interactive-map-container">
+            <div ref={mapRef}></div>
+            {selectedState && <StateMap stateName={selectedState} />}
+        </div>
         )
 }
