@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as topojson from 'topojson-client';
 import usData from '../../data/us.json';
 import "./InteractiveMap.css";
 import { fipsStateCodes } from '../../constants';
+import StateMap from '../StateMap/StateMap';
 
-export default function InteractiveMap({ raceType }) {
+export default function InteractiveMap({ handleLocation, handleState, handleBackButton, selectedState, setSelectedState }) {
 
       const mapRef = useRef(null);
 
@@ -33,19 +34,25 @@ export default function InteractiveMap({ raceType }) {
         svg.selectAll('.state')
           .data(states)
           .enter().append('path')
-          .attr('class', 'state')
+          .attr('class', (d) => `state ${selectedState === fipsStateCodes[d.id] ? 'selected' : ''}`)
           .attr('d', path)
           .on('click', function(d) {
             const stateName = fipsStateCodes[d.id];
-            window.location.href = `/${raceType}/${stateName}`;
+            setSelectedState(stateName);
+            handleLocation(2);
+            handleState(stateName);
+            handleBackButton(true);
           });
     
         return () => {
           svg.remove();
         };
-      }, []);
+      }, [selectedState]);
 
     return (
-        <div ref={mapRef} className="interactive-map-container"></div>
+        <div ref={mapRef} className="interactive-map-container">
+            <div ref={mapRef}></div>
+            {selectedState && <StateMap stateName={selectedState} />}
+        </div>
         )
 }

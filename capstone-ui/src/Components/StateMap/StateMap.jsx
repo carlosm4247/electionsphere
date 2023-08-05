@@ -62,7 +62,7 @@ export default function StateMap({ stateName }) {
             <div ref={mapRef} className="map-svg-container"></div>
             {hoveredCounty && (
                 <div className="popup-container" style={{ left: popupPosition.x, top: popupPosition.y }}>
-                    <ResultsBox locationLevel={3} countyFIPS={hoveredCounty.id} />
+                    <ResultsBox locationLevel={3} countyFIPS={hoveredCounty.id} stateName={stateName}/>
                 </div>
                 )
             }
