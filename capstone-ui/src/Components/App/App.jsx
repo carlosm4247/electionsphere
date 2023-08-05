@@ -51,7 +51,7 @@ export default function App() {
                   <Link key={option.value} to={option.value}> <button>{option.label}</button> </Link>
                   ))}
               </div>
-              <h2 className="title">Website Name</h2>
+              <h2 className="title">ElectionSphere</h2>
               <div className='login-section'>
                 {user ? (
                   <div className='profile'>
