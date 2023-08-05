@@ -1,0 +1,58 @@
+.candidate-view {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+}
+  
+.topbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.candidate-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+  
+.categories {
+    display: flex;
+}
+  
+.category {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 10px 10px 0 0;
+    margin-right: 5px;
+}
+  
+.category.selected {
+    background-color: grey;
+}
+  
+.category-content {
+    border: 1px solid #ddd;
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+}
+
+.stances-content {
+    padding: 10px;
+}
+  
+.stances-content > div {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+  
+.stances-content p {
+    margin: 0;
+    font-weight: bold;
+}
+  
+.stances-content p:last-child {
+    font-weight: normal;
+    margin-top: 5px;
+}

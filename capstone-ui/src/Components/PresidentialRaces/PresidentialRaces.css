@@ -1,0 +1,25 @@
+.map-container {
+    margin-bottom: 10px;
+}
+  
+.info {
+    display: flex;
+    flex-direction: row; 
+}
+  
+.results-container {
+    max-width: 300px;
+    margin-right: 20px;
+}
+  
+.candidate-comparison-container {
+    flex: 2;
+    margin-top: 10px; 
+    display: flex;
+}
+  
+.candidate-view {
+    flex: 1;
+    max-width: calc(50% - 10px);
+    margin-right: 10px;
+}
