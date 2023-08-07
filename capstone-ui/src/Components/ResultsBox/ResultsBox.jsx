@@ -115,7 +115,7 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
               </tr>
             </thead>
             <tbody>
-              {candidates.slice(0, candidatesShowing).map((candidate) => (
+              {candidates.slice(0, Math.min(candidatesShowing, candidates.length)).map((candidate) => (
                 <tr key={candidate.key}
                     onClick={() => handleClick(candidate.key, candidate.name, event)}
                     className={ (selectedCandidates && (selectedCandidates.some((c) => c.key === candidate.key))) ? "selected" : ""}
