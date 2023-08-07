@@ -120,7 +120,7 @@ export default function ResultsBox( { locationLevel, countyFIPS, selectedCandida
                     onClick={() => handleClick(candidate.key, candidate.name, event)}
                     className={ (selectedCandidates && (selectedCandidates.some((c) => c.key === candidate.key))) ? "selected" : ""}
                     >
-                  <td>{candidate.name}</td>
+                  <td>{candidate.name != "None of these candidates" ? (candidate.name) : ("Independent")}</td>
                   <td>{candidate.voteCount}</td>
                   <td>{candidate.percentage}</td>
                 </tr>
