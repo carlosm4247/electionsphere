@@ -19,9 +19,6 @@ Features:
 - Candidate Recommendations based on user data
 - Election results data from country/states/counties
 
-Stretch Features:
-- Following specific candidates/races to receive news about them in an Inbox
-
 User Roles:
 - Voter
 
