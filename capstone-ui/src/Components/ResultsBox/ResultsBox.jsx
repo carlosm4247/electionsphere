@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react';
-import { useParams } from "react-router-dom"
+import { useContext, useState } from 'react';
 import electionResults from "../../Data/2020presidential.json"
 import "./ResultsBox.css"
 import { unclickables } from '../../constants.js';
