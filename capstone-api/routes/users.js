@@ -119,9 +119,8 @@ router.post("/click", async (req, res) => {
   
         const candidates = user.candidates || {};
         const candidateData = candidates[candidateName];
-        const updatedClickCount = candidateData[0] + 1;
-        const updatedCandidateData = [updatedClickCount, candidateData[1]]; 
-        const updatedCandidates = { ...candidates, [candidateName]: updatedCandidateData };
+        const updatedClickCount = candidateData + 1;
+        const updatedCandidates = { ...candidates, [candidateName]: updatedClickCount };
 
         user.setDataValue("candidates", updatedCandidates);
 

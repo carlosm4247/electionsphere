@@ -83,14 +83,14 @@ export default function Recommendations() {
             let maxClicks = 0;
 
             for (const candidate in user.candidates) {
-                const clicks = user.candidates[candidate][0];
+                const clicks = user.candidates[candidate];
                 maxClicks += clicks;
             }
 
             let normalizedClicks = 0;
 
             if (maxClicks != 0) {
-                normalizedClicks = user.candidates[candidate.name][0] / maxClicks;
+                normalizedClicks = user.candidates[candidate.name] / maxClicks;
             }
         
             const score = userWeight * userSimilarity + followedWeight * followedSimilarity + partyWeight * partySimilarity + clicksWeight * normalizedClicks;
