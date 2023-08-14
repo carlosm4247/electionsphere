@@ -8,6 +8,7 @@ export default function Feed ( { loggedin }) {
     const [searchQuery, setSearchQuery] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const [showNoArticlesMessage, setShowNoArticlesMessage] = useState(false);
 
     const user = useContext(UserContext);
 
@@ -64,6 +65,7 @@ export default function Feed ( { loggedin }) {
       fetchTimerRef.current = setTimeout(() => {
         fetchData(currentPage);
         setIsFetching(false);
+        setShowNoArticlesMessage(true);
       }, 1000);
 
       return () => {
@@ -99,9 +101,9 @@ export default function Feed ( { loggedin }) {
                             <p className="article-description">{article.excerpt}</p>
                         </div>
                     </div>
-                ))) : (
+                ))) : showNoArticlesMessage ? (
                     <p>No articles right now, check later or refresh the page.</p>
-                )}
+                ) : (null)}
             </div>
             {isFetching && <LoadingFallback />}
             {currentPage < totalPages && (
