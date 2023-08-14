@@ -130,8 +130,8 @@
             "Yes"
           ],
           "Should the U.S. build a wall along the southern border?": [
-            "Border Wall",
-            "Yes"
+            "No Border Wall",
+            "No, this would be too costly and ineffective"
           ],
           "Do you support the Affordable Care Act (Obamacare)?": [
             "Obamacare",
@@ -659,11 +659,11 @@
           ], 
           "Should the federal government increase funding of entitlements, such as Medicaid, Medicare, Social Security, and Unemployment?": [
             "Increase Entitlements",
-            "Yes."
+            "Yes"
           ],
           "Should the U.S. raise taxes on the rich?": [
             "Rich Tax",
-            "Yes."
+            "Yes"
           ],
             
           "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
@@ -686,11 +686,11 @@
             
           "Should the federal government pay for tuition at four-year colleges and universities?": [
             "College For All",
-            "Yes."
+            "Yes"
           ],
           "Do you support affirmative action programs?": [
             "Affirmative Action",
-            "Yes."
+            "Yes"
           ],
           "Should the U.S. build a wall along the southern border?": [
             "No Border Wall",
@@ -699,7 +699,7 @@
             
           "Do you support the Affordable Care Act (Obamacare)?": [
             "Obamacare",
-            "Yes."
+            "Yes"
           ]
         },
         "position_summary": "As an Independent candidate, Brock Pierce does not have formal positions within a specific political party, but he has advocated for cryptocurrency and blockchain technology."
@@ -740,8 +740,8 @@
             "Yes"
           ],
           "If found guilty, should former President Trump be pardoned for mishandling classified documents?": [
-            "Rule of Law",
-            "No, no one is above the law"
+            "Laptop From Hell", 
+            "Yes, this indictment represents a political double standard"
           ],
           "Should the government increase environmental regulations to prevent climate change?": [
             "Increase regulations Incentivize Energy",
