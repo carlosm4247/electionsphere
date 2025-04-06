@@ -94,9 +94,9 @@ export default function Feed ( { loggedin }) {
                 .map((article, index) => (
                     <div key={index} className="article-container">
                         <div className="article-content">
-                            <a href={article.link} target="_blank" className="article-title">{article.title}</a>
-                            <p className="article-info">{article.published_date} | By: {article.author}</p>
-                            <p className="article-description">{article.excerpt}</p>
+                            <a href={article.url} target="_blank" className="article-title">{article.title}</a>
+                            <p className="article-info">{article.publishedAt} | By: {article.author}</p>
+                            <p className="article-description">{article.description}</p>
                         </div>
                     </div>
                 ))) : (

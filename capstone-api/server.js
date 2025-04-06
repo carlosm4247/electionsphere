@@ -41,7 +41,7 @@ app.use(
 // Define routes
 app.get('/', (req, res) => res.send('INDEX'));
 app.use(userRoutes);
-//app.use(feedRoute);
+app.use(feedRoute);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
