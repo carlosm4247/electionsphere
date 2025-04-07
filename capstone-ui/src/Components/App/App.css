@@ -11,17 +11,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background-color: #022031;
-  border: 1px solid #FFFFFF;
-  border-radius: 10px;
 }
 
-.title {  
-  font-size: 3rem;
-  font-weight: bold;
-  color: #D92140;
-  margin: 0;
+.nav-options {
+  display: flex;
+  align-items: center;
+}
+
+.options {
+  font-weight: bolder;
+  margin: 0px;
+  border: 0px;
+  font-size: 1.3em;
+  padding: 0.6em;
+  color: black;
+}
+
+.login-button {
+  font-weight: bolder;
+  font-size: 1.2em;
 }
 
 .profile {
