@@ -43,7 +43,9 @@ Screen Archetypes
 - Login Screen
 - Presidential Race Screen w/ Interactive Map & Candidate Comparison, Election Results 
 
-
-
-
+Credit to the MIT Election Data and Science Lab for thos federal election data:
+- MIT Election Data and Science Lab. 2017. “U.S. Senate Statewide 1976-2020.” Harvard Dataverse. https://doi.org/doi:10.7910/DVN/PEJ5QU.
+- MIT Election Data and Science Lab. 2017. “U.S. President 1976-2020.” Harvard Dataverse. https://doi.org/doi:10.7910/DVN/42MVDX.
+- MIT Election Data and Science Lab. 2017. “U.S. House 1976-2022.” Harvard Dataverse. https://doi.org/doi:10.7910/DVN/IG0UN2.
+- MIT Election Data and Science Lab. 2018. “County Presidential Election Returns 2000-2020.” Harvard Dataverse. https://doi.org/doi:10.7910/DVN/VOQCHQ.
 
