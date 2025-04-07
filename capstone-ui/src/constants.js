@@ -1,6 +1,7 @@
 const options = [
-  { label: 'Home', value: '/' },
-  { label: 'Presidential Race', value: '/president' },
+  { label: 'Candidates', value: '/candidates' },
+  { label: 'Election Results', value: '/president' },
+  { label: 'News', value: '/news' },
 ];
 
 const unclickables = ["Independent", "Write-ins", "None of these candidates"];

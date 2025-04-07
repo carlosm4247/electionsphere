@@ -9,6 +9,9 @@ import { options} from "../../constants.js"
 import FollowingPopup from '../FollowingPopup/FollowingPopup';
 import Feed from '../Feed/Feed';
 import Recommendations from '../Recommendations/Recommendations';
+import TitleLogo from '../Logo/Logo'
+import Home from '../Home/Home'
+import Candidates from '../Candidates/Candidates';
 
 export default function App() {
 
@@ -46,12 +49,16 @@ export default function App() {
         <BrowserRouter>
           <main>
             <div className="navbar">
-              <div className="dropdown">
-                  {options.map((option) => (
-                  <Link key={option.value} to={option.value}> <button>{option.label}</button> </Link>
-                  ))}
+              <div className='nav-options'>
+                <Link key='Home' to='/' className='title'>
+                  <TitleLogo />
+                </Link>
+                <div>
+                    {options.map((option) => (
+                    <Link key={option.value} to={option.value}> <button className='options'>{option.label}</button> </Link>
+                    ))}
+                </div>
               </div>
-              <h2 className="title">ElectionSphere</h2>
               <div className='login-section'>
                 {user ? (
                   <div className='profile'>
@@ -65,13 +72,14 @@ export default function App() {
                     </div>
                   </div>
                 ) : (
-                  <Link to="/login"><button>Login</button></Link>
+                  <Link to="/login"><button className='login-button'>Login</button></Link>
                 )}
               </div>
             </div>
             <div className="content">
               <Routes>
-                <Route path='/' element={<div className={`${user ? "loggedin-home" : "" }`}>
+                <Route path='/' element={<Home />}/>
+                <Route path='/news' element={<div className={`${user ? "loggedin-home" : "" }`}>
                                           <div className={`feed-wrapper ${user ? 'loggedin-feed' : 'not-loggedin-feed'}`}>
                                             <Feed loggedin={user ? true : false} />
                                           </div>
@@ -86,6 +94,7 @@ export default function App() {
                                                   />}/>
                 <Route path='/login' element={<LoginForm />}/>
                 <Route path='/signup' element={<SignupForm />}/>
+                <Route path='/candidates' element={<Candidates />}/>
               </Routes>
             </div>
             {showPopup && (
