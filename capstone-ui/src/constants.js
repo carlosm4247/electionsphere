@@ -1,6 +1,6 @@
 const options = [
   { label: 'Candidates', value: '/candidates' },
-  { label: 'Election Results', value: '/president' },
+  { label: 'Election Results', value: '/electionresults' },
   { label: 'News', value: '/news' },
 ];
 

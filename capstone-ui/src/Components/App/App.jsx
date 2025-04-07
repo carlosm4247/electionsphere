@@ -3,7 +3,6 @@ import { UserContext } from '../../UserContext';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import SignupForm from '../SignupForm/SignupForm';
-import PresidentialRaces from '../PresidentialRaces/PresidentialRaces';
 import "./App.css";
 import { options} from "../../constants.js"
 import FollowingPopup from '../FollowingPopup/FollowingPopup';
@@ -12,6 +11,7 @@ import Recommendations from '../Recommendations/Recommendations';
 import TitleLogo from '../Logo/Logo'
 import Home from '../Home/Home'
 import Candidates from '../Candidates/Candidates';
+import ElectionResults from '../ElectionResults/ElectionResults';
 
 export default function App() {
 
@@ -88,10 +88,7 @@ export default function App() {
                                           </div>
                                         </div>
                                       }/>
-                <Route path='/president' element={<PresidentialRaces 
-                                                    selectedCandidates={selectedCandidates} 
-                                                    setSelectedCandidates={setSelectedCandidates}
-                                                  />}/>
+                <Route path='/electionresults' element={<ElectionResults selectedCandidates={selectedCandidates} setSelectedCandidates={setSelectedCandidates}/>}/>
                 <Route path='/login' element={<LoginForm />}/>
                 <Route path='/signup' element={<SignupForm />}/>
                 <Route path='/candidates' element={<Candidates />}/>
