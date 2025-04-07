@@ -4,6 +4,8 @@ const options = [
   { label: 'News', value: '/news' },
 ];
 
+const federalRaceTypes = ["President", "Senate", "House"]
+
 const unclickables = ["Independent", "Write-ins", "None of these candidates"];
 
 const questionsWithOptions = {
@@ -281,4 +283,4 @@ const presidentialStateWins = {
   "wyoming": "republican"
 }
 
-export { options, unclickables, questionsWithOptions, parties, baseCandidates, partiesOrganized, FIPSfromStateName, fipsStateCodes, presidentialStateWins };
+export { federalRaceTypes, options, unclickables, questionsWithOptions, parties, baseCandidates, partiesOrganized, FIPSfromStateName, fipsStateCodes, presidentialStateWins };
